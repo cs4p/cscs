@@ -2,6 +2,21 @@
 
 ### Basic scan
 	nmap -v -A --top-ports 100 *hosts*
+### Better Scan
+    sudo nmap -vvv -Pn -sCV -T5 --reason -p0-65535 -oN scan_results.nmap
+
+**-Pn** Assume host is active
+
+**-sCV** Run safe scripts and check for service, Probe open ports to determine service/version info
+
+**-T5** Run fast
+
+**--reason** Display the reason a port is in a particular state
+
+**-p0-65535** scan all TCP ports including port 0
+
+**-oN** output the results to file
+
 ### Ping Sweep
 	nmap -sT -O --top-ports 25 *hosts* -oA $(date +"%Y_%m_%d_%I_%M_%p")_*hosts*
 ### Update script database
@@ -130,4 +145,3 @@
 	  nmap -v -sn 192.168.0.0/16 10.0.0.0/8
 	  nmap -v -iR 10000 -Pn -p 80
 	SEE THE MAN PAGE (https://nmap.org/book/man.html) FOR MORE OPTIONS AND EXAMPLES
-	[main][~/projects/cscs]$ 

@@ -4,16 +4,14 @@
 #disable language package
 echo 'Acquire::Languages "none";' | sudo tee /etc/apt/apt.conf.d/99disable-translations
 
-
 apt update
 apt upgrade -y
 apt autoremove -y
 
-
 #setup flatpak
-apt install flatpak
+apt install -y flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-apt install gnome-software-plugin-flatpak
+apt install -y gnome-software-plugin-flatpak
 
 # install Google Chrome
 flatpak install flathub com.google.Chrome
@@ -39,8 +37,8 @@ apt install parrot-tools-full
 curl -fsSL https://pkgs.tailscale.com/stable/debian/bullseye.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
 curl -fsSL https://pkgs.tailscale.com/stable/debian/bullseye.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
 #Install Tailscale:
-sudo apt-get update
-sudo apt-get install tailscale
+sudo apt update
+sudo apt install -y tailscale
 #Connect your machine to your Tailscale network and authenticate in your browser:
 sudo tailscale up
 #You’re connected! You can find your Tailscale IPv4 address by running:

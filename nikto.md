@@ -1,10 +1,9 @@
 # nikto
-Scan web server for known vulnerabilities
+Scan web server for known vulnerabilities \
+https://github.com/sullo/nikto
 
-Nikto homepage: [https://github.com/sullo/nikto][1]
- Basic scan
+
+# Basic scan
 	nikto -host 192.168.1.1 -port 443
-Update databases and plugins from CIRT.net
+# Update databases and plugins from CIRT.net
 	nikto -update
-
-[1]:	https://github.com/sullo/nikto
