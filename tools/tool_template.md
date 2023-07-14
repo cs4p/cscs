@@ -1,5 +1,5 @@
 # Tool Title
-Tool description 
+Tool description
 
 [link to tool]
 
