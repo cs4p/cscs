@@ -1,9 +1,9 @@
-# Tool Title
-Tool description 
+# SploitSearch
+find vulnerabilities in the metasploit database
 
-[link to tool]
+https://gitlab.com/exploit-database/exploitdb
 
-# Instalation
+# Installation
 ## MacOS
     brew install tool
 ## Debian
@@ -20,6 +20,6 @@ Tool description
     something else
 
 # Help output
-`
-help output here
-`
+```
+help output
+```

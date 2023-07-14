@@ -1,3 +1,25 @@
+# wig
+WebApp Information Gatherer 
+
+https://github.com/jekyc/wig
+
+# Installation
+## MacOS
+    brew install tool
+## Debian
+    apt install tool
+## Script
+    curl http://example.com/script.sh
+
+# Examples
+
+## Example 1
+    something
+
+## Example 2
+    something else
+
+# Help output
 ```
 usage: wig [-h] [-l INPUT_FILE] [-q] [-n STOP_AFTER] [-a] [-m] [-u] [-d]
            [-t THREADS] [--no_cache_load] [--no_cache_save] [-N] [--verbosity]
