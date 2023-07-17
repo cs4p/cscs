@@ -12,8 +12,8 @@ apt autoremove -y
 curl https://downloads.1password.com/linux/debian/amd64/stable/1password-latest.deb
 sudo dpkg -i 1password-latest.deb
 
-#synapse
-sudo apt install synapse
+#other tools
+sudo apt install synapse filezilla
 
 #zsh
 sudo apt install zsh
@@ -42,6 +42,8 @@ dconf load / < my_dconf
 
 # install security tools
 apt install parrot-tools-full
+apt install ffuf
+
 
 # Install tailscale
 #Add Tailscale’s package signing key and repository:
@@ -60,3 +62,4 @@ systemctl enable ssh
 
 #Install txeh - cli for managing /etc/hosts
 curl https://github.com/txn2/txeh/releases/download/v1.4.0/txeh_arm64.deb
+

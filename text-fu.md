@@ -7,7 +7,11 @@
   * -f select fields
 * grep 
   * add $ to match end of line
+  * 'grep -v' - return anyline that does not match the criteria
+  * -B# return # lines before matching line
 * sed
+* ps
+  * ps -auxwwf
 
 
 # Examples #
