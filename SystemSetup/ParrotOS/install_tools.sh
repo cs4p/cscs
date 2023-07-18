@@ -13,7 +13,9 @@ curl https://downloads.1password.com/linux/debian/amd64/stable/1password-latest.
 sudo dpkg -i 1password-latest.deb
 
 #other tools
-sudo apt install synapse filezilla
+sudo apt install synapse filezilla timeshift nfs-common time rlwrap
+# time tells you how long commands take to execute.  Nice when running brute force attacks
+#rlwrap provides command recall in remote shells
 
 #zsh
 sudo apt install zsh

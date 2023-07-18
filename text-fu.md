@@ -48,3 +48,6 @@ Remove diacritical marks from all accented variants of the letter ‘e’:
 substitute a comma at the end of a file with nothing 
 
     sed s/,$//g
+
+Get all urls from a page
+    curl -s $target | grep -Eo '(href|src)=".*"' | sed -r 's/(href|src)=//g' | tr -d '"' | sort 
