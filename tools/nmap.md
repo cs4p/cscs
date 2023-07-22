@@ -18,7 +18,7 @@ Nmap (“Network Mapper”) is a free and open source utility for network explor
 	nmap -v -A --top-ports 100 *hosts*
 
 ## Better Scan
-    sudo nmap -vvv -Pn -sCV -T5 --reason -p0-65535 -oN scan_results.nmap
+    sudo nmap -vvv -Pn -sCV -T5 --reason -p0-65535 -oN scan_results.nmap $target
 
 **-Pn** Assume host is active
 
