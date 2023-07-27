@@ -9,13 +9,11 @@ Nmap (“Network Mapper”) is a free and open source utility for network explor
     brew install nmap
 ## Debian
     apt install nmap
-## Script
-    curl http://example.com/script.sh
 
 # Examples
 
 ## Basic scan
-	nmap -v -A --top-ports 100 *hosts*
+	nmap -v -A --top-ports 100 $target
 
 ## Better Scan
     sudo nmap -vvv -Pn -sCV -T5 --reason -p0-65535 -oN scan_results.nmap $target
