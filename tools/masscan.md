@@ -4,6 +4,8 @@ MASSCAN is a fast port scanner. The primary input parameters are the IP addresse
 https://github.com/robertdavidgraham/masscan
 
 # Installation
+## MacOS
+    brew install masscan
 ## Debian
     apt install masscan
 
