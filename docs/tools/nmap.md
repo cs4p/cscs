@@ -1,7 +1,7 @@
-# NMAP 
+# NMAP
 Nmap (“Network Mapper”) is a free and open source utility for network exploration and security auditing.
 
-* https://github.com/nmap/nmap 
+* https://github.com/nmap/nmap
 * https://nmap.org/download.html
 
 # Installation
@@ -35,7 +35,7 @@ Nmap (“Network Mapper”) is a free and open source utility for network explor
 ## Update script database
 	nmap --script-updatedb
 
-**List of nmap scripts:** https://nmap.org/nsedoc/scripts/ 
+**List of nmap scripts:** https://nmap.org/nsedoc/scripts/
 
 ## Scan for know CVEs
 	nmap -Pn --script vuln 192.168.1.105

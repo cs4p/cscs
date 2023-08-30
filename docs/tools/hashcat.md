@@ -1,9 +1,11 @@
 # hashcat
-crack hashed passwords 
+crack hashed passwords
 
 https://github.com/hashcat/hashcat
 
 # Installation
+## MacOS
+    brew install hashcat
 ## Debian
     apt install hashcat
 
@@ -11,7 +13,7 @@ https://github.com/hashcat/hashcat
 
 ## Show an example hash for each hash-mode
 use this to find the Mode of the hashed string
-    hashcat --example-hashes | grep {{ some part of hash}} 
+    hashcat --example-hashes | grep {{ some part of hash}}
 
 ## Example 2
 something else

@@ -7,7 +7,7 @@ https://github.com/Matthias-Wandel/jhead
 
 # Installation
 ## MacOS
-    brew install tool
+    brew install jhead
 ## Debian
     apt install jhead
 ## Script
@@ -78,7 +78,7 @@ DATE / TIME MANIPULATION:
              This feature is useful for ordering files from multiple digicams to
              sequence of taking.
              The '.jpg' is automatically added to the end of the name.  If the
-             destination name already exists, a letter or digit is added to 
+             destination name already exists, a letter or digit is added to
              the end of the name to make it unique.
              The new name may include a path as part of the name.  If this path
              does not exist, it will be created
@@ -148,7 +148,7 @@ FILE MATCHING AND SELECTION:
              Apply 'command' to every file, then re-insert exif and command
              sections into the image. &i will be substituted for the input file
              name, and &o (if &o is used). Use quotes around the command string
-             This is most useful in conjunction with the free ImageMagick tool. 
+             This is most useful in conjunction with the free ImageMagick tool.
              For example, with my Canon S100, which suboptimally compresses
              jpegs I can specify
                 jhead -cmd "mogrify -quality 80 &i" *.jpg
