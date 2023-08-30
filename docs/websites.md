@@ -23,3 +23,10 @@ https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS
 
 ## RSA Key Cracking
 https://github.com/RsaCtfTool/RsaCtfTool
+
+## Facial recognition
+PimEyes: https://pimeyes.com/en - pay
+TinEye: https://tineye.com/ - reverse image search
+
+## Investigative Resources
+ALEPH Search: https://aleph.occrp.org/ - Maltego plugin
