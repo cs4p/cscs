@@ -1,4 +1,4 @@
-# Tool Title
+# Tool Template
 Tool description
 
 [link to tool]

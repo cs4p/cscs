@@ -1,3 +1,5 @@
+#tmux
+
 https://medium.com/hackernoon/a-gentle-introduction-to-tmux-8d784c404340
 
 tmux is based around sessions. To start a new session in tmux, simply type tmux new in your terminal. 
