@@ -4,14 +4,16 @@ scans a webserver to brute force valid paths
 https://github.com/OJ/gobuster
 
 # Installation
-## MacOS
+
+# MacOS
     brew install gobuster
-## Debian
+
+# Debian
     apt install gobuster
 
 # Examples
 
-## Basic scan
+# Basic scan
     gobuster dir -w /usr/share/dirbuster/wordlists/directory-list-2.3-small.txt -t 10 --url http://192.168.211.35/
 
 ## Another scan

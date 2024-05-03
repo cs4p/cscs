@@ -4,7 +4,9 @@ A fast web fuzzer written in Go
 https://github.com/ffuf/ffuf
 
 # Instalation
-## MacOS 
+
+# MacOS
+
     brew install ffuf
 ## Debian
     apt install ffuf

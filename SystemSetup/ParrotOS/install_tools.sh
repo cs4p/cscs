@@ -13,7 +13,7 @@ curl https://downloads.1password.com/linux/debian/amd64/stable/1password-latest.
 sudo dpkg -i 1password-latest.deb
 
 #other tools
-sudo apt install synapse filezilla timeshift nfs-common time rlwrap hardinfo pwncat
+sudo apt install synapse filezilla timeshift nfs-common time rlwrap hardinfo pwncat btop tldr
 # time tells you how long commands take to execute.  Nice when running brute force attacks
 #rlwrap provides command recall in remote shells
 
