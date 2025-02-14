@@ -6,12 +6,9 @@ https://github.com/digininja/CeWL
 
 # Installation
 
-# MacOS
-    brew install tool
-## Debian
-    apt install tool
 ## Script
-    curl http://example.com/script.sh
+    git clone https://github.com/digininja/CeWL.git
+    follow instructions in readme
 
 # Examples
 
