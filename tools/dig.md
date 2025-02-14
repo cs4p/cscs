@@ -24,11 +24,9 @@ https://www.isc.org/bind/
 
 # Installation
 ## MacOS
-    brew install tool
+    should be installed already
 ## Debian
     apt install dnsutils
-## Script
-    curl http://example.com/script.sh
 
 # Examples
 
