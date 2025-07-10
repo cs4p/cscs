@@ -15,6 +15,7 @@
     brew install osxphotos
     brew install mas
     brew install maccy
+    brew install --cask the-unarchiver
 
 ## Development
     brew install python@3.12
