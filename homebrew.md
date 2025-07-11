@@ -59,7 +59,7 @@
 ## Special use case
     brew install big-mean-folder-machine
     brew install handbrake-app
-    brew install osxphotos    
+    brew install osxphotos <-- May not be working    
 
 ## Setup tailscale
     brew install tailscale
