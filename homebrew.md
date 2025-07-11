@@ -12,7 +12,6 @@
     brew install --cask platypus
     brew install tree
     brew install wget
-    brew install osxphotos
     brew install mas
     brew install maccy
     brew install --cask the-unarchiver
@@ -60,7 +59,7 @@
 ## Special use case
     brew install big-mean-folder-machine
     brew install handbrake-app
-    
+    brew install osxphotos    
 
 ## Setup tailscale
     brew install tailscale
@@ -74,8 +73,6 @@ Note: You may have to run this command as root depending on your setup
 Login to the tailscale network:
 
     tailscale login
-
-
 
 # Get homebrew to work with zscalar
     ls /opt/homebrew/etc/openssl@3/certs
