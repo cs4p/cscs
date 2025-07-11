@@ -16,6 +16,7 @@
     brew install mas
     brew install maccy
     brew install --cask the-unarchiver
+    brew install docker
 
 ## Development
     brew install python@3.12
@@ -31,6 +32,25 @@
     brew install netcat
     brew install nikto
     brew install theharvester
+
+# Additional Apps
+    brew install --cask anylist 
+    brew install --cask backblaze
+    brew install --cask balenaetcher
+    brew install --cask cyberduck
+    brew install --cask discord
+    brew install --cask grandperspective
+    brew install --cask hush
+    brew install --cask jetbrains-toolbox
+    brew install --cask postman
+    brew install --cask setapp
+    brew install --cask signal
+    brew install --cask slack
+
+# Apps can be installed from the App Store using MAS
+    FriendlyStreaming - mas install 553245401
+    SiteSucker - mas install 442168834
+    TheCamelizer - mas install 1532579087
 
 ## Kubernetes
     brew install kubecm
@@ -60,3 +80,6 @@ Login to the tailscale network:
 # Get homebrew to work with zscalar
     ls /opt/homebrew/etc/openssl@3/certs
     cp ~/Documents/Zscaler\ Root\ CA.cer /opt/homebrew/etc/openssl@3/certs
+
+
+
