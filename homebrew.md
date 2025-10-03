@@ -17,10 +17,16 @@
     brew install --cask the-unarchiver
     brew install docker
 
+## Docker/Container Management
+Recomend using colima as a simple command line replacement for docker:
+    
+    brew install colima docker docker-compose docker-buildx
+
 ## Development
     brew install python@3.12
     brew install asdf
     brew install gh
+    brew install node
     
 ## Security
     brew install nmap
