@@ -40,6 +40,25 @@ Nmap (“Network Mapper”) is a free and open source utility for network explor
 ## Scan for know CVEs
 	nmap -Pn --script vuln 192.168.1.105
 
+## Host Discovery
+	sudo nmap 10.129.2.0/24 -sn -oA tnet | grep for | cut -d" " -f5-6
+
+- sn 	Disables port scanning.
+- oA tnet 	Stores the results in all formats starting with the name 'tnet'.
+
+
+## TCP-SYN scan
+
+The TCP-SYN scan (-sS) is one of the default settings unless we have defined otherwise and is also one of the most popular scan methods. This scan method makes it possible to scan several thousand ports per second. The TCP-SYN scan sends one packet with the SYN flag and, therefore, never completes the three-way handshake, which results in not establishing a full TCP connection to the scanned port.
+
+    - If our target sends a SYN-ACK flagged packet back to us, Nmap detects that the port is open.
+    - If the target responds with an RST flagged packet, it is an indicator that the port is closed.
+    - If Nmap does not receive a packet back, it will display it as filtered. Depending on the firewall configuration, certain packets may be dropped or ignored by the firewall.
+
+## Connect Scan on TCP Port 443
+
+	sudo nmap 10.129.2.28 -p 443 --packet-trace --disable-arp-ping -Pn -n --reason -sT 
+
 # Help output
 ```
 Nmap 7.92 ( https://nmap.org )
