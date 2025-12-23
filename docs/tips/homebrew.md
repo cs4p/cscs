@@ -1,3 +1,5 @@
+# Homebrew Tips
+
 # Setup autoupdate
     brew tap domt4/autoupdate
     brew autoupdate start
