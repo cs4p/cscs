@@ -1,4 +1,8 @@
-# Download unread emails and parse them into standard EmailMessage objects
+# IMAP Tools
+
+Download unread emails and parse them into standard EmailMessage objects
+
+```
 import email
 
 from imapclient import IMAPClient
@@ -16,3 +20,4 @@ def get_unread_email(HOST, USERNAME, PASSWORD):
         for uid, message_data in server.fetch(messages, "RFC822.TEXT").items():
             email_message = email.message_from_bytes(message_data[b"RFC822"])
             print(uid, email_message.get("From"), email_message.get("Subject"))
+```

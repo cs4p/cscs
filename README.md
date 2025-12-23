@@ -1,8 +1,12 @@
 # cscs
+
+This repo is published at https://cs4p.github.io/cscs/
+
 ## Cybersecurity Cheatsheets
 
-- Tips: Some cool resources and scripts for common cybersecurity needs that are not specific to a tool
-- Tools: One pagers for cybersecurity tools I ahve found usefull
+- Tips: Some cool resources for common cybersecurity needs that are not specific to a tool
+- Tools: One pager for cybersecurity tools I have found useful
+- Scripts: Scripts I have written for various tasks
 
 # OPSec Safety Tips
-* **run commands in /dev/shm.** This directory exists only in memory and is normally world writeable
+* **run commands in /dev/shm.** This directory exists only in memory and is normally world-writeable

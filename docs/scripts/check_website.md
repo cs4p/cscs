@@ -1,3 +1,8 @@
+# Check website
+
+This script checks the status of a set of links.
+
+```
 import urllib.request
 import urllib.error
 import time
@@ -5,12 +10,12 @@ from multiprocessing import Pool
 
 start = time.time()
 
-file = open('/Users/dan/Downloads/external_sites.txt', 'r')
+file = open('external_sites.txt', 'r')
 urls = file.readlines()
-results_file = open('/Users/dan/Downloads/results.txt', 'w')
+results_file = open('results.txt', 'w')
 
 
-#print(urls)
+# print(urls)
 
 def checkurl(url):
     print("Checking " + url)
@@ -31,9 +36,10 @@ def checkurl(url):
 
 
 if __name__ == "__main__":
-    # p = Pool(processes=20)
-    # result = p.map(checkurl, urls)
-    for url in urls:
-        checkurl(url)
+    p = Pool(processes=20)
+    result = p.map(checkurl, urls)
+    # for url in urls:
+    #     checkurl(url)
 
 print("done in : ", time.time()-start)
+```
