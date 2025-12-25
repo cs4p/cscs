@@ -244,29 +244,15 @@ Create `~/.config/feroxbuster/ferox-config.toml`:
 # Basic settings
 threads = 50
 wordlist = "/usr/share/seclists/Discovery/Web-Content/raft-medium-directories.txt"
-status_codes = [200, 204, 301, 302, 307, 308, 401, 403, 405]
-timeout = 7
-user_agent = "feroxbuster/2.7.0"
 redirects = true
 insecure = true
-extensions = ["php", "html", "txt"]
 
 # Recursion
 recursion_depth = 4
 auto_tune = true
-auto_bail = true
-
-# Filtering
-filter_size = [0]
-filter_regex = []
-filter_words = []
-filter_lines = []
 
 # Output
 output = "ferox_output.txt"
-json = false
-quiet = false
-silent = false
 ```
 
 ### Use config file:
