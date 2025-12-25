@@ -37,8 +37,20 @@ ps (process status) is a command-line utility that displays information about ru
 ### Useful flags
   * ps -auxwwf
 
+## find
+
+find is a command-line utility for searching for files in a directory hierarchy.
+
+### Useful flags
+  * -name to match file name
+  * -type to match file type
+  * -exec to execute a command on matching files
 
 # Examples #
+## Find all files named user.txt starting from the root. Redirect any errors to /dev/null.
+
+    find / -name user.txt 2>/dev/null
+
 ## Store your local IP in a variable
 
     ip a | grep tun0$ | awk '{print2}' | awk -F / '{print $1}' | xclip selection clipboard

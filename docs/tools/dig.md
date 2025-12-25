@@ -1,158 +1,330 @@
 # dig
-dig is a flexible tool for interrogating DNS name servers. It performs DNS lookups and displays the answers that are returned from the  name
-server(s) that were queried. Most DNS administrators use dig to troubleshoot DNS problems because of its flexibility, ease of use, and clar‐
-ity of output. Other lookup tools tend to have less functionality than dig.
 
-Although dig is normally used with command-line arguments, it also has a batch mode of operation for reading lookup requests from a file.  A
-brief summary of its command-line arguments and options is printed when the -h option is given. The BIND 9 implementation of dig allows mul‐
-tiple lookups to be issued from the command line.
+## Overview
+dig (Domain Information Groper) is a powerful command-line tool for querying DNS nameservers. It's used for network troubleshooting, DNS diagnostics, and information gathering during reconnaissance.
 
-Unless it is told to query a specific name server, dig tries each of the servers listed in /etc/resolv.conf. If no usable  server  addresses
-are found, dig sends the query to the local host.
+## Installation
 
-When no command-line arguments or options are given, dig performs an NS query for "." (the root).
+```bash
+# Debian/Ubuntu
+sudo apt install dnsutils
 
-It  is  possible  to  set  per-user defaults for dig via ${HOME}/.digrc. This file is read and any options in it are applied before the com‐
-mand-line arguments. The -r option disables this feature, for scripts that need predictable behavior.
+# RHEL/CentOS
+sudo yum install bind-utils
 
-The IN and CH class names overlap with the IN and CH top-level domain names. Either use the -t and -c options to specify the type and class,
-use the -q to specify the domain name, or use "IN." and "CH." when looking up these top-level domains.
-
-
-https://en.wikipedia.org/wiki/Dig_(command)
-https://www.isc.org/bind/
-
-# Installation
-## MacOS
-    brew install tool
-## Debian
-    apt install dnsutils
-## Script
-    curl http://example.com/script.sh
-
-# Examples
-
-## Get all DNS records for a domain
-    dig domain_name any
-
-The any DNS query is a special meta query which is now deprecated. Since around 2019, most public DNS servers have stopped answering most DNS ANY queries usefully [1].
-
-If ANY queries do not enumerate multiple records, the only option is to request each record type (e.g. A, CNAME, or MX) individually.
-
-## Perform a reverse lookup on a domain to see what IP it should resolve to
-    dig -x ipAddress
-
-# Help output
-```
-dan in ~ λ dig -h
-Usage:  dig [@global-server] [domain] [q-type] [q-class] {q-opt}
-            {global-d-opt} host [@local-server] {local-d-opt}
-            [ host [@local-server] {local-d-opt} [...]]
-Where:  domain	  is in the Domain Name System
-        q-class  is one of (in,hs,ch,...) [default: in]
-        q-type   is one of (a,any,mx,ns,soa,hinfo,axfr,txt,...) [default:a]
-                 (Use ixfr=version for type ixfr)
-        q-opt    is one of:
-                 -4                  (use IPv4 query transport only)
-                 -6                  (use IPv6 query transport only)
-                 -b address[#port]   (bind to source address/port)
-                 -c class            (specify query class)
-                 -f filename         (batch mode)
-                 -k keyfile          (specify tsig key file)
-                 -m                  (enable memory usage debugging)
-                 -p port             (specify port number)
-                 -q name             (specify query name)
-                 -r                  (do not read ~/.digrc)
-                 -t type             (specify query type)
-                 -u                  (display times in usec instead of msec)
-                 -x dot-notation     (shortcut for reverse lookups)
-                 -y [hmac:]name:key  (specify named base64 tsig key)
-        d-opt    is of the form +keyword[=value], where keyword is:
-                 +[no]aaflag         (Set AA flag in query (+[no]aaflag))
-                 +[no]aaonly         (Set AA flag in query (+[no]aaflag))
-                 +[no]additional     (Control display of additional section)
-                 +[no]adflag         (Set AD flag in query (default on))
-                 +[no]all            (Set or clear all display flags)
-                 +[no]answer         (Control display of answer section)
-                 +[no]authority      (Control display of authority section)
-                 +[no]badcookie      (Retry BADCOOKIE responses)
-                 +[no]besteffort     (Try to parse even illegal messages)
-                 +bufsize[=###]      (Set EDNS0 Max UDP packet size)
-                 +[no]cdflag         (Set checking disabled flag in query)
-                 +[no]class          (Control display of class in records)
-                 +[no]cmd            (Control display of command line -
-                                      global option)
-                 +[no]comments       (Control display of packet header
-                                      and section name comments)
-                 +[no]cookie         (Add a COOKIE option to the request)
-                 +[no]crypto         (Control display of cryptographic
-                                      fields in records)
-                 +[no]defname        (Use search list (+[no]search))
-                 +[no]dns64prefix    (Get the DNS64 prefixes from ipv4only.arpa)
-                 +[no]dnssec         (Request DNSSEC records)
-                 +domain=###         (Set default domainname)
-                 +[no]edns[=###]     (Set EDNS version) [0]
-                 +ednsflags=###      (Set EDNS flag bits)
-                 +[no]ednsnegotiation (Set EDNS version negotiation)
-                 +ednsopt=###[:value] (Send specified EDNS option)
-                 +noednsopt          (Clear list of +ednsopt options)
-                 +[no]expandaaaa     (Expand AAAA records)
-                 +[no]expire         (Request time to expire)
-                 +[no]fail           (Don't try next server on SERVFAIL)
-                 +[no]header-only    (Send query without a question section)
-                 +[no]https[=###]    (DNS-over-HTTPS mode) [/]
-                 +[no]https-get      (Use GET instead of default POST method while using HTTPS)
-                 +[no]http-plain[=###]    (DNS over plain HTTP mode) [/]
-                 +[no]http-plain-get      (Use GET instead of default POST method while using plain HTTP)
-                 +[no]identify       (ID responders in short answers)
-                 +[no]idnin          (Parse IDN names [default=on on tty])
-                 +[no]idnout         (Convert IDN response [default=on on tty])
-                 +[no]ignore         (Don't revert to TCP for TC responses.)
-                 +[no]keepalive      (Request EDNS TCP keepalive)
-                 +[no]keepopen       (Keep the TCP socket open between queries)
-                 +[no]multiline      (Print records in an expanded format)
-                 +ndots=###          (Set search NDOTS value)
-                 +[no]nsid           (Request Name Server ID)
-                 +[no]nssearch       (Search all authoritative nameservers)
-                 +[no]onesoa         (AXFR prints only one soa record)
-                 +[no]opcode=###     (Set the opcode of the request)
-                 +padding=###        (Set padding block size [0])
-                 +qid=###            (Specify the query ID to use when sending queries)
-                 +[no]qr             (Print question before sending)
-                 +[no]question       (Control display of question section)
-                 +[no]raflag         (Set RA flag in query (+[no]raflag))
-                 +[no]rdflag         (Recursive mode (+[no]recurse))
-                 +[no]recurse        (Recursive mode (+[no]rdflag))
-                 +retry=###          (Set number of UDP retries) [2]
-                 +[no]rrcomments     (Control display of per-record comments)
-                 +[no]search         (Set whether to use searchlist)
-                 +[no]short          (Display nothing except short
-                                      form of answers - global option)
-                 +[no]showbadcookie  (Show BADCOOKIE message)
-                 +[no]showsearch     (Search with intermediate results)
-                 +[no]split=##       (Split hex/base64 fields into chunks)
-                 +[no]stats          (Control display of statistics)
-                 +subnet=addr        (Set edns-client-subnet option)
-                 +[no]tcflag         (Set TC flag in query (+[no]tcflag))
-                 +[no]tcp            (TCP mode (+[no]vc))
-                 +timeout=###        (Set query timeout) [5]
-                 +[no]tls            (DNS-over-TLS mode)
-                 +[no]tls-ca[=file]  (Enable remote server's TLS certificate validation)
-                 +[no]tls-hostname=hostname (Explicitly set the expected TLS hostname)
-                 +[no]tls-certfile=file (Load client TLS certificate chain from file)
-                 +[no]tls-keyfile=file (Load client TLS private key from file)
-                 +[no]trace          (Trace delegation down from root [+dnssec])
-                 +tries=###          (Set number of UDP attempts) [3]
-                 +[no]ttlid          (Control display of ttls in records)
-                 +[no]ttlunits       (Display TTLs in human-readable units)
-                 +[no]unknownformat  (Print RDATA in RFC 3597 "unknown" format)
-                 +[no]vc             (TCP mode (+[no]tcp))
-                 +[no]yaml           (Present the results as YAML)
-                 +[no]zflag          (Set Z flag in query)
-        global d-opts and servers (before host name) affect all queries.
-        local d-opts and servers (after host name) affect only that lookup.
-        -h                           (print help and exit)
-        -v                           (print version and exit)
-
+# macOS (usually pre-installed)
+brew install bind
 ```
 
+## Basic Usage
+
+```bash
+# Basic query
+dig example.com
+
+# Query specific record type
+dig example.com A
+dig example.com MX
+dig example.com NS
+```
+
+## Common Record Types
+
+| Type | Description |
+|------|-------------|
+| `A` | IPv4 address |
+| `AAAA` | IPv6 address |
+| `MX` | Mail exchange servers |
+| `NS` | Nameservers |
+| `CNAME` | Canonical name (alias) |
+| `TXT` | Text records |
+| `SOA` | Start of authority |
+| `PTR` | Pointer (reverse DNS) |
+| `SRV` | Service records |
+| `CAA` | Certification authority authorization |
+
+## Common Options
+
+| Option | Description |
+|--------|-------------|
+| `+short` | Short output (answer only) |
+| `+noall +answer` | Only show answer section |
+| `@server` | Query specific DNS server |
+| `-x IP` | Reverse DNS lookup |
+| `+trace` | Trace delegation path |
+| `+dnssec` | Request DNSSEC records |
+| `-4` | Force IPv4 |
+| `-6` | Force IPv6 |
+| `-p PORT` | Use specific port |
+
+## Examples
+
+### Basic Queries
+```bash
+# Get A record
+dig example.com A
+
+# Get all records
+dig example.com ANY
+
+# Short answer only
+dig example.com +short
+
+# Clean output (answer only)
+dig example.com +noall +answer
+```
+
+### Specific DNS Servers
+```bash
+# Query Google DNS
+dig @8.8.8.8 example.com
+
+# Query Cloudflare DNS
+dig @1.1.1.1 example.com
+
+# Query specific nameserver
+dig @ns1.example.com example.com
+```
+
+### Mail Records
+```bash
+# Get MX records
+dig example.com MX
+
+# Short format
+dig example.com MX +short
+
+# Get MX with priority
+dig example.com MX +noall +answer
+```
+
+### Nameserver Queries
+```bash
+# Get nameservers
+dig example.com NS
+
+# Get SOA record
+dig example.com SOA
+
+# Get nameservers from root
+dig example.com NS @a.root-servers.net
+```
+
+### Reverse DNS Lookup
+```bash
+# Reverse lookup
+dig -x 8.8.8.8
+
+# Short format
+dig -x 8.8.8.8 +short
+
+# Query specific server
+dig -x 8.8.8.8 @1.1.1.1
+```
+
+### DNS Tracing
+```bash
+# Trace delegation path
+dig example.com +trace
+
+# Trace with short output
+dig example.com +trace +short
+
+# Trace specific record type
+dig example.com MX +trace
+```
+
+### TXT Records
+```bash
+# Get TXT records (SPF, DKIM, etc.)
+dig example.com TXT
+
+# Get specific subdomain TXT
+dig _dmarc.example.com TXT
+
+# SPF records
+dig example.com TXT | grep spf
+```
+
+### DNSSEC Queries
+```bash
+# Request DNSSEC validation
+dig example.com +dnssec
+
+# Check DNSKEY records
+dig example.com DNSKEY
+
+# Check DS records
+dig example.com DS
+```
+
+### Subdomain Enumeration
+```bash
+# Query common subdomains
+dig www.example.com +short
+dig mail.example.com +short
+dig ftp.example.com +short
+
+# Check wildcard DNS
+dig randomstring123.example.com
+```
+
+### Advanced Queries
+```bash
+# Query with TCP instead of UDP
+dig example.com +tcp
+
+# Set custom timeout
+dig example.com +time=5
+
+# Set number of retries
+dig example.com +tries=3
+
+# Show query time statistics
+dig example.com +stats
+
+# Verbose output
+dig example.com +qr
+```
+
+### Zone Transfer (AXFR)
+```bash
+# Attempt zone transfer
+dig @ns1.example.com example.com AXFR
+
+# Zone transfer with specific nameserver
+dig @dns.example.com example.com AXFR
+
+# Note: Most nameservers block unauthorized zone transfers
+
+# Zone transfer with text-fu to grab the domains as a list
+dig @dns.example.com example.com axfr | grep -oE '(\w+\.)?\w+\.com' | sort -u
+```
+
+### Batch Queries
+```bash
+# Query multiple domains
+dig example.com google.com github.com
+
+# Query from file
+dig -f domains.txt
+
+# Query multiple record types
+dig example.com A MX NS
+```
+
+## Output Format
+
+```
+; <<>> DiG 9.18.1 <<>> example.com
+;; QUESTION SECTION:
+;example.com.			IN	A
+
+;; ANSWER SECTION:
+example.com.		3600	IN	A	93.184.216.34
+
+;; Query time: 20 msec
+;; SERVER: 192.168.1.1#53(192.168.1.1)
+;; WHEN: Mon Dec 23 10:30:00 UTC 2024
+;; MSG SIZE  rcvd: 56
+```
+
+### Understanding Output Sections
+- **QUESTION**: The query sent
+- **ANSWER**: The response from DNS
+- **AUTHORITY**: Authoritative nameservers
+- **ADDITIONAL**: Additional information (glue records, etc.)
+
+## Useful Combinations
+
+### DNS Reconnaissance
+```bash
+# Get all important records
+dig example.com ANY +noall +answer
+dig example.com NS +short
+dig example.com MX +short
+dig example.com TXT +short
+
+# Check nameservers
+for ns in $(dig example.com NS +short); do
+  echo "=== $ns ==="
+  dig @$ns example.com
+done
+```
+
+### Compare DNS Servers
+```bash
+# Compare responses from different servers
+dig @8.8.8.8 example.com +short
+dig @1.1.1.1 example.com +short
+dig @208.67.222.222 example.com +short
+```
+
+### DNS Propagation Check
+```bash
+# Check multiple authoritative nameservers
+for ns in $(dig example.com NS +short); do
+  echo "Server: $ns"
+  dig @$ns example.com A +short
+done
+```
+
+## Common DNS Servers
+
+| Provider | IPv4 | IPv6 |
+|----------|------|------|
+| Google | 8.8.8.8, 8.8.4.4 | 2001:4860:4860::8888 |
+| Cloudflare | 1.1.1.1, 1.0.0.1 | 2606:4700:4700::1111 |
+| Quad9 | 9.9.9.9 | 2620:fe::fe |
+| OpenDNS | 208.67.222.222 | 2620:119:35::35 |
+
+## Tips & Tricks
+
+1. **Use +short for scripting** - Clean output for parsing
+2. **Check multiple DNS servers** - Verify propagation
+3. **Use +trace for delegation issues** - Debug DNS hierarchy
+4. **Try AXFR on new targets** - Misconfigured servers may allow zone transfers
+5. **Check TXT records** - Often contain useful information (SPF, DKIM, verification tokens)
+6. **Use @server to bypass local DNS** - Get fresh results
+7. **Check both IPv4 and IPv6** - Some records may differ
+8. **Look for CNAMEs** - Can reveal infrastructure (CDN, cloud providers)
+
+## Common Use Cases
+
+### Security Testing
+- DNS reconnaissance
+- Subdomain discovery
+- Zone transfer attempts
+- DNS cache poisoning detection
+- DNSSEC validation
+
+### Troubleshooting
+- Verify DNS propagation
+- Check DNS resolution issues
+- Debug mail delivery (MX records)
+- Validate domain configuration
+- Test DNS server performance
+
+### Information Gathering
+- Identify hosting provider
+- Find mail servers
+- Discover nameservers
+- Check SPF/DKIM/DMARC records
+- Identify CDN usage
+
+## Comparison with Similar Tools
+
+| Feature | dig | nslookup | host |
+|---------|-----|----------|------|
+| Detail Level | High | Medium | Low |
+| Output Control | Excellent | Limited | Limited |
+| Batch Queries | Yes | No | Yes |
+| DNSSEC | Yes | Limited | Yes |
+| Scripting | Excellent | Poor | Good |
+| Learning Curve | Moderate | Easy | Easy |
+
+## References
+
+- **Man Page**: `man dig`
+- **ISC BIND**: https://www.isc.org/bind/
+- **DNS RFCs**: RFC 1035, RFC 4034 (DNSSEC)
