@@ -1,30 +1,42 @@
-# ffuf - Fuzz Faster U Fool 
-A fast web fuzzer written in Go 
+# Ffuf
 
-https://github.com/ffuf/ffuf
+A fast web fuzzer written in Go. Ffuf (Fuzz Faster U Fool) is used for directory discovery, subdomain brute-forcing, and parameter fuzzing.
 
-# Instalation
+* https://github.com/ffuf/ffuf
 
-# MacOS
+# Installation
 
-    brew install ffuf
+## MacOS
+```bash
+brew install ffuf
+```
+
 ## Debian
-    apt install ffuf
-## go compiler installed
-    go install github.com/ffuf/ffuf/v2@latest
-(the same command works for updating)
-## git
-    git clone https://github.com/ffuf/ffuf ; cd ffuf ; go get ; go build
+```bash
+apt install ffuf
+```
 
-Ffuf depends on Go 1.16 or greater.
+## Go
+```bash
+go install github.com/ffuf/ffuf/v2@latest
+```
 
 # Examples
 
 ## Basic fuzzing
-    ffuf -w /path/to/wordlist -u https://target/FUZZ
+```bash
+ffuf -w /path/to/wordlist -u https://target/FUZZ
+```
 
-## Search for subdomains ##
-    ffuf -H "Host: FUZZ.example.com" -u http://example.com -c -mc 200 -w SecLists/Discovery/DNS/bitquark-subdomains-top100000.txt -o sneakymailer.ffuf
+## Search for subdomains
+```bash
+ffuf -H "Host: FUZZ.example.com" -u http://example.com -c -mc 200 -w subdomains.txt
+```
+
+## Fuzz with multiple wordlists
+```bash
+ffuf -w users.txt:USER -w pass.txt:PASS -u http://target.com/login -X POST -d "user=USER&pass=PASS"
+```
 
 # Help output
 ```

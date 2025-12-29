@@ -1,37 +1,47 @@
 # Oh My Zsh
+
 Oh My Zsh is an open-source, community-driven framework for managing your Zsh configuration. It comes bundled with thousands of helpful functions, helpers, plugins, and themes.
 
 * https://github.com/ohmyzsh/ohmyzsh
 * https://ohmyz.sh/
 
 # Installation
-## MacOS / Linux
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-## Alternative: wget
-    sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-## Manual Installation
-    git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
-    cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 
-# Configuration
+## MacOS / Linux
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+## Alternative: wget
+```bash
+sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+```
+
+# Examples
 
 ## Enable plugins
 Edit `~/.zshrc` and add plugins to the plugins array:
-
-    plugins=(git docker kubectl python)
+```bash
+plugins=(git docker kubectl python)
+```
 
 ## Change theme
 Edit `~/.zshrc` and set the theme:
-
-    ZSH_THEME="robbyrussell"
+```bash
+ZSH_THEME="robbyrussell"
+```
 
 ## Update Oh My Zsh
-    omz update
+```bash
+omz update
+```
 
 ## Reload configuration
-    source ~/.zshrc
+```bash
+source ~/.zshrc
+```
 
-# Popular Plugins
+# Configuration
 
 ## Built-in Plugins
 

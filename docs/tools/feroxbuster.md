@@ -1,45 +1,55 @@
 # Feroxbuster
 
-## Overview
 Feroxbuster is a fast, simple, recursive content discovery tool written in Rust. It's designed for forced browsing and finding hidden files/directories on web servers. Known for its speed, recursion capabilities, and extensive filtering options.
 
-## Installation
+* https://github.com/epi052/feroxbuster
+* https://epi052.github.io/feroxbuster-docs/overview/
 
+# Installation
+
+## MacOS
 ```bash
-# Using cargo (Rust package manager)
-cargo install feroxbuster
+brew install feroxbuster
+```
 
-# Debian/Ubuntu (from GitHub releases)
-wget https://github.com/epi052/feroxbuster/releases/latest/download/feroxbuster_amd64.deb
-sudo dpkg -i feroxbuster_amd64.deb
-
+## Debian
+```bash
 # Using apt (Kali Linux)
 sudo apt install feroxbuster
 
-# macOS
-brew install feroxbuster
-
-# From source
-git clone https://github.com/epi052/feroxbuster.git
-cd feroxbuster
-cargo build --release
-sudo cp target/release/feroxbuster /usr/local/bin/
+# From GitHub releases
+wget https://github.com/epi052/feroxbuster/releases/latest/download/feroxbuster_amd64.deb
+sudo dpkg -i feroxbuster_amd64.deb
 ```
 
-## Basic Usage
-
+## Rust (Cargo)
 ```bash
-# Basic scan
+cargo install feroxbuster
+```
+
+# Examples
+
+## Basic scan
+```bash
 feroxbuster -u https://example.com
+```
 
-# With wordlist
-feroxbuster -u https://example.com -w /usr/share/seclists/Discovery/Web-Content/common.txt
+## With wordlist and extensions
+```bash
+feroxbuster -u https://example.com -w wordlist.txt -x php,html,txt
+```
 
-# Recursive scan
+## Recursive scan
+```bash
 feroxbuster -u https://example.com -w wordlist.txt -r
 ```
 
-## Common Options
+## Limit recursion depth
+```bash
+feroxbuster -u https://example.com -w wordlist.txt -r -d 3
+```
+
+# Common Options
 
 | Option | Description |
 |--------|-------------|
@@ -525,9 +535,7 @@ feroxbuster -u http://target.htb \
   -o ctf_results.txt
 ```
 
-## References
-
-- **GitHub**: https://github.com/epi052/feroxbuster
-- **Documentation**: https://epi052.github.io/feroxbuster-docs/overview/
-- **Examples**: https://github.com/epi052/feroxbuster/tree/main/examples
-- **Discord**: https://discord.gg/feroxbuster
+# Help output
+```
+feroxbuster - A fast, simple, recursive content discovery tool written in Rust.
+```

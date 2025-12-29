@@ -1,107 +1,166 @@
-# xclip
-xclip is a command-line utility that provides an interface to the X Window System clipboard. It allows you to copy and paste text between the terminal and graphical applications.
+# Xclip
+
+Xclip is a command-line utility that provides an interface to the X Window System clipboard. It allows you to copy and paste text between the terminal and graphical applications.
 
 * https://github.com/astrand/xclip
 * https://linux.die.net/man/1/xclip
 
 # Installation
+
 ## MacOS
-    # Use pbcopy/pbpaste instead (built-in)
-    # Or install xclip via:
-    brew install xclip
+```bash
+# Use pbcopy/pbpaste instead (built-in)
+# Or install xclip via:
+brew install xclip
+```
+
 ## Debian
-    apt install xclip
+```bash
+apt install xclip
+```
 
 # Examples
 
 ## Copy text to clipboard
-	echo "text" | xclip -selection clipboard
+```bash
+echo "text" | xclip -selection clipboard
+```
 
 ## Copy file contents to clipboard
-	xclip -selection clipboard < file.txt
+```bash
+xclip -selection clipboard < file.txt
+```
 
 ## Paste from clipboard
-	xclip -selection clipboard -o
+```bash
+xclip -selection clipboard -o
+```
 
 ## Copy command output to clipboard
-	ls -la | xclip -selection clipboard
+```bash
+ls -la | xclip -selection clipboard
+```
 
 ## Copy file path to clipboard
-	pwd | xclip -selection clipboard
+```bash
+pwd | xclip -selection clipboard
+```
 
 ## Short form using aliases (recommended)
-	# Add to ~/.bashrc or ~/.zshrc:
-	alias xc='xclip -selection clipboard'
-	alias xp='xclip -selection clipboard -o'
+Add to `~/.bashrc` or `~/.zshrc`:
+```bash
+alias xc='xclip -selection clipboard'
+alias xp='xclip -selection clipboard -o'
+```
 
-	# Then use:
-	echo "text" | xc
-	xp
+Then use:
+```bash
+echo "text" | xc
+xp
+```
 
 ## Copy primary selection (middle-click paste)
-	echo "text" | xclip
+```bash
+echo "text" | xclip
+```
 
 ## Paste from primary selection
-	xclip -o
+```bash
+xclip -o
+```
 
 ## Copy to both clipboard and primary
-	echo "text" | tee >(xclip) | xclip -selection clipboard
+```bash
+echo "text" | tee >(xclip) | xclip -selection clipboard
+```
 
 ## Copy multiple lines to clipboard
-	cat << EOF | xclip -selection clipboard
-	Line 1
-	Line 2
-	Line 3
-	EOF
+```bash
+cat << EOF | xclip -selection clipboard
+Line 1
+Line 2
+Line 3
+EOF
+```
 
 ## Copy screenshot path to clipboard
-	import screenshot.png && echo "screenshot.png" | xclip -selection clipboard
+```bash
+import screenshot.png && echo "screenshot.png" | xclip -selection clipboard
+```
 
 ## Clear clipboard
-	echo -n | xclip -selection clipboard
+```bash
+echo -n | xclip -selection clipboard
+```
 
 ## Monitor clipboard changes
-	while true; do xclip -o -selection clipboard; sleep 1; done
+```bash
+while true; do xclip -o -selection clipboard; sleep 1; done
+```
 
 ## Copy SSH public key to clipboard
-	cat ~/.ssh/id_rsa.pub | xclip -selection clipboard
+```bash
+cat ~/.ssh/id_rsa.pub | xclip -selection clipboard
+```
 
 ## Copy current directory path
-	pwd | xclip -selection clipboard
+```bash
+pwd | xclip -selection clipboard
+```
 
 ## Copy last command output
-	!! | xclip -selection clipboard
+```bash
+!! | xclip -selection clipboard
+```
 
 # MacOS Equivalents
 
 ## Copy to clipboard (MacOS)
-	echo "text" | pbcopy
+```bash
+echo "text" | pbcopy
+```
 
 ## Paste from clipboard (MacOS)
-	pbpaste
+```bash
+pbpaste
+```
 
 ## Copy file contents (MacOS)
-	pbcopy < file.txt
+```bash
+pbcopy < file.txt
+```
 
 # Common Use Cases
 
 ## Copy grep results
-	grep "pattern" file.txt | xclip -selection clipboard
+```bash
+grep "pattern" file.txt | xclip -selection clipboard
+```
 
 ## Copy find results
-	find . -name "*.txt" | xclip -selection clipboard
+```bash
+find . -name "*.txt" | xclip -selection clipboard
+```
 
 ## Copy IP address
-	ip addr show | grep "inet " | awk '{print $2}' | xclip -selection clipboard
+```bash
+ip addr show | grep "inet " | awk '{print $2}' | xclip -selection clipboard
+```
 
 ## Copy current Git branch
-	git branch --show-current | xclip -selection clipboard
+```bash
+git branch --show-current | xclip -selection clipboard
+```
 
 ## Copy base64 encoded file
-	base64 file.bin | xclip -selection clipboard
+```bash
+base64 file.bin | xclip -selection clipboard
+```
 
 ## Copy without newline
-	echo -n "text" | xclip -selection clipboard
+```bash
+echo -n "text" | xclip -selection clipboard
+```
 
 # Help output
 ```

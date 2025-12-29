@@ -1,54 +1,48 @@
 # SearchSploit
+
 SearchSploit is a command-line utility for searching and browsing the Exploit Database (Exploit-DB) offline. It allows security professionals to search for exploits and proof-of-concepts for known vulnerabilities.
 
 * https://github.com/offensive-security/exploitdb
 * https://www.exploit-db.com/searchsploit
 
 # Installation
+
 ## MacOS
-    brew install exploitdb
+```bash
+brew install exploitdb
+```
+
 ## Debian
-    apt install exploitdb
+```bash
+sudo apt install exploitdb
+```
+
 ## Update Database
-    searchsploit -u
+```bash
+searchsploit -u
+```
 
 # Examples
 
 ## Basic search
-	searchsploit apache 2.4
-
-## Search with case sensitivity
-	searchsploit -c Apache 2.4
+```bash
+searchsploit apache 2.4
+```
 
 ## Search for exact match
-	searchsploit -e "Apache 2.4.49"
-
-## Search excluding specific terms
-	searchsploit wordpress --exclude="3.0|4.0"
-
-## Show full paths to exploits
-	searchsploit -p 39446
+```bash
+searchsploit -e "Apache 2.4.49"
+```
 
 ## Copy exploit to current directory
-	searchsploit -m 39446
+```bash
+searchsploit -m 39446
+```
 
-## Search and output in JSON format
-	searchsploit --json apache
-
-## Search with web browser opening
-	searchsploit -w apache 2.4
-
-## View NMap XML file for exploit suggestions
-	searchsploit --nmap scan_results.xml
-
-## Search only in title
-	searchsploit -t sql injection
-
-## Search for specific platform
-	searchsploit afd windows --platform=windows
-
-## Update local exploit database
-	searchsploit -u
+## View Nmap XML file for exploit suggestions
+```bash
+searchsploit --nmap scan_results.xml
+```
 
 # Help output
 ```

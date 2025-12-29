@@ -1,22 +1,24 @@
 # Netcat (nc)
 
-## Overview
 Netcat (nc) is a versatile networking utility for reading from and writing to network connections using TCP or UDP. Often called the "Swiss Army knife" of networking, it's used for port scanning, file transfers, backdoors, port forwarding, and debugging network services.
 
-## Installation
+* https://github.com/netcat/netcat
+* https://linux.die.net/man/1/nc
 
+# Installation
+
+## MacOS
 ```bash
-# Debian/Ubuntu (traditional netcat)
+brew install netcat
+```
+
+## Debian
+```bash
+# traditional netcat
 sudo apt install netcat-traditional
 
-# Debian/Ubuntu (OpenBSD version)
+# OpenBSD version
 sudo apt install netcat-openbsd
-
-# RHEL/CentOS
-sudo yum install nc
-
-# macOS (usually pre-installed)
-brew install netcat
 
 # Ncat (Nmap's netcat)
 sudo apt install ncat

@@ -1,23 +1,37 @@
 # Tool Template
+
 Tool description
 
-[link to tool]
+* [link to tool](http://example.com)
 
 # Installation
+
 ## MacOS
-    brew install tool
+```bash
+brew install tool
+```
+
 ## Debian
-    apt install tool
+```bash
+apt install tool
+```
+
 ## Script
-    curl http://example.com/script.sh
+```bash
+curl http://example.com/script.sh
+```
 
 # Examples
 
 ## Example 1
-    something
+```bash
+something
+```
 
 ## Example 2
-    something else
+```bash
+something else
+```
 
 # Help output
 ```

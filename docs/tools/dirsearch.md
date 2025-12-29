@@ -1,30 +1,42 @@
-# dirsearch
+# Dirsearch
 
-## Overview
-dirsearch is a powerful command-line tool for web content discovery and directory/file brute-forcing. Written in Python, it's designed to find hidden paths, directories, and files on web servers through dictionary-based enumeration.
+Dirsearch is a powerful command-line tool for web content discovery and directory/file brute-forcing. Written in Python, it's designed to find hidden paths, directories, and files on web servers through dictionary-based enumeration.
 
-## Installation
+* https://github.com/maurosoria/dirsearch
+* https://github.com/maurosoria/dirsearch/wiki
 
+# Installation
+
+## MacOS / Debian
 ```bash
-# Clone from GitHub
-git clone https://github.com/maurosoria/dirsearch.git
-cd dirsearch
-
-# Install via pip
 pip3 install dirsearch
 ```
 
-## Basic Usage
-
+## From Source
 ```bash
-# Basic scan
-python3 dirsearch.py -u https://target.com
-
-# Using pip installation
-dirsearch -u https://target.com
+git clone https://github.com/maurosoria/dirsearch.git
+cd dirsearch
+pip3 install -r requirements.txt
 ```
 
-## Common Options
+# Examples
+
+## Basic scan
+```bash
+dirsearch -u https://target.com -e php,html,js,txt
+```
+
+## Scan multiple targets
+```bash
+dirsearch -l urls.txt -e php,asp,aspx
+```
+
+## Recursive scan with depth limit
+```bash
+dirsearch -u https://target.com -r -R 3
+```
+
+# Common Options
 
 | Option | Description |
 |--------|-------------|
@@ -180,7 +192,7 @@ dirsearch -u https://target.com/admin/ -e php
 | Ease of Use | Easy | Easy | Moderate |
 | Features | Rich | Minimal | Very Rich |
 
-## References
-
-- **GitHub**: https://github.com/maurosoria/dirsearch
-- **Documentation**: https://github.com/maurosoria/dirsearch/wiki
+# Help output
+```
+Usage: dirsearch.py [-u|--url] target [-e|--extensions] extensions [options]
+```

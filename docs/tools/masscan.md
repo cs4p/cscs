@@ -1,38 +1,45 @@
-# masscan
-MASSCAN is a fast port scanner. The primary input parameters are the IP addresses/ranges you want to scan, and the port numbers.
+# Masscan
 
-https://github.com/robertdavidgraham/masscan
+Masscan is an Internet-scale port scanner. It can scan the entire Internet in under 6 minutes, transmitting 10 million packets per second, from a single machine.
+
+* https://github.com/robertdavidgraham/masscan
 
 # Installation
+
 ## MacOS
-    brew install masscan
+```bash
+brew install masscan
+```
+
 ## Debian
-    apt install masscan
+```bash
+sudo apt install masscan
+```
 
 # Examples
 
 ## Basic scan
-Usage is similar to nmap. To scan a network segment for some ports:
-
-    sudo masscan -p80,8000-8100 10.0.0.0/8 2603:3001:2d00:da00::/112
-
-This will:
-
-* scan the 10.x.x.x subnet, and 2603:3001:2d00:da00::x subnets
-* scans port 80 and the range 8000 to 8100, or 102 ports total, on both subnets
-* print output to <stdout> that can be redirected to a file
+Scan a network segment for specific ports:
+```bash
+sudo masscan -p80,8000-8100 10.0.0.0/8
+```
 
 ## Port scan a host
-    sudo masscan -p 0-65535 $target
+Scan all ports on a single host:
+```bash
+sudo masscan -p 0-65535 $target --rate 1000
+```
 
 ## Create a config file
-To see the complete list of options, use the --echo feature. This dumps the current configuration and exits. This output can be used as input back into the program:
+Dumps the current configuration to a file:
+```bash
+sudo masscan -p80,8000-8100 10.0.0.0/8 --echo > masscan.conf
+```
 
-    sudo masscan -p80,8000-8100 10.0.0.0/8 2603:3001:2d00:da00::/112 --echo > xxx.conf
-    masscan -c xxx.conf --rate 1000
-
-## Using masscan, you can scan all TCP and UDP ports in roughly 2-3 minutes.
-    masscan -p1-65535,U:1-65535 $target --rate=1000 -e tun0
+## Run from a config file
+```bash
+sudo masscan -c masscan.conf --rate 1000
+```
 
 # Help output
 ```

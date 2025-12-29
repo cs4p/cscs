@@ -1,26 +1,45 @@
 # Lynis
-Lynis is an open source security tool. It helps with auditing systems running UNIX-alike systems (Linux, macOS, BSD), and providing guidance for system hardening and compliance testing. This document contains the basics to use the software.
 
-https://cisofy.com/documentation/lynis/
+Lynis is an open source security tool. It helps with auditing systems running UNIX-alike systems (Linux, macOS, BSD), and providing guidance for system hardening and compliance testing.
+
+* https://cisofy.com/lynis/
+* https://github.com/CISOfy/lynis
 
 # Installation
-## Script
-Clone the github repo:
+
+## MacOS
+```bash
+brew install lynis
 ```
-git clone https://github.com/CISOfy/lynis
-cd lynis && ./lynis audit system
-```
+
 ## Debian
-    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 013baa07180c50a7101097ef9de922f1c2fde6c4
-    sudo apt install apt-transport-https
-    echo "deb https://packages.cisofy.com/community/lynis/deb/ stable main" | sudo tee /etc/apt/sources.list.d/cisofy-lynis.list
-    apt update
-    apt install lynis
+```bash
+sudo apt install lynis
+```
+
+## From Source
+```bash
+git clone https://github.com/CISOfy/lynis
+cd lynis
+./lynis audit system
+```
 
 # Examples
 
 ## Scan the local system for issues
-    lynis audit system 
+```bash
+lynis audit system
+```
+
+## Run pentest audit (non-privileged)
+```bash
+lynis audit system --pentest
+```
+
+## Show help for a specific command
+```bash
+lynis show help
+```
 
 # Help output
 ```

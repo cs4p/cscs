@@ -1,22 +1,39 @@
-# nikto
-Scan web server for known vulnerabilities 
+# Nikto
 
-https://github.com/sullo/nikto
+Nikto is an open source web server scanner which performs comprehensive tests against web servers for multiple items, including over 6700 potentially dangerous files/programs, checks for outdated versions of over 1250 servers, and version specific problems on over 270 servers.
 
-## Installation
-### MacOS
-    brew install nikto
-### Debian
-    apt install nikto
+* https://github.com/sullo/nikto
 
-## Examples
+# Installation
 
-### Basic scan
-	nikto -host 192.168.1.1 -port 443
-### Update databases and plugins from CIRT.net
-	nikto -update
+## MacOS
+```bash
+brew install nikto
+```
 
-## Help output
+## Debian
+```bash
+sudo apt install nikto
+```
+
+# Examples
+
+## Basic scan
+```bash
+nikto -h http://192.168.1.1
+```
+
+## Scan specific port
+```bash
+nikto -h 192.168.1.1 -p 443
+```
+
+## Update databases and plugins
+```bash
+nikto -update
+```
+
+# Help output
 ```            
 Options:
 -ask+               Whether to ask about submitting updates

@@ -1,39 +1,37 @@
-# hashid
-Identify the different types of hashes used to encrypt data
+# HashID
 
+Identify the different types of hashes used to encrypt data and provides the corresponding Hashcat mode and JohnTheRipper format.
 
-[link to tool]
+* https://github.com/psypanda/hashID
 
 # Installation
-## MacOS
-    brew install tool
-## Debian
-    apt install hashid
-## Script
-    pip install hashid
+
+## MacOS / Debian (Using pip)
+```bash
+pip install hashid
+```
+
+## Debian (Using apt)
+```bash
+apt install hashid
+```
 
 # Examples
 
-`$ ./hashid.py '$P$8ohUJ.1sdFw09/bMaAQPTGDNi2BIUt1'`
-`Analyzing '$P$8ohUJ.1sdFw09/bMaAQPTGDNi2BIUt1'`
-`[+] Wordpress ≥ v2.6.2`
-`[+] Joomla ≥ v2.5.18`
-`[+] PHPass' Portable Hash`
+## Identify a single hash
+```bash
+hashid '$P$8ohUJ.1sdFw09/bMaAQPTGDNi2BIUt1'
+```
 
-`$ ./hashid.py -mj '$racf$*AAAAAAAA*3c44ee7f409c9a9b'`
-`Analyzing '$racf$*AAAAAAAA*3c44ee7f409c9a9b'`
-`[+] RACF [Hashcat Mode: 8500][JtR Format: racf]`
+## Identify a hash and show Hashcat and JohnTheRipper modes
+```bash
+hashid -mj '$racf$*AAAAAAAA*3c44ee7f409c9a9b'
+```
 
-`$ ./hashid.py hashes.txt`
-`--File 'hashes.txt'--`
-`Analyzing '*85ADE5DDF71E348162894C71D73324C043838751'`
-`[+] MySQL5.x`
-`[+] MySQL4.1`
-`Analyzing '$2a$08$VPzNKPAY60FsAbnq.c.h5.XTCZtC1z.j3hnlDFGImN9FcpfR1QnLq'`
-`[+] Blowfish(OpenBSD)`
-`[+] Woltlab Burning Board 4.x`
-`[+] bcrypt`
-`--End of file 'hashes.txt'--`
+## Identify hashes from a file
+```bash
+hashid hashes.txt
+```
 
 # Help output
 ```

@@ -1,30 +1,37 @@
-# jhead
-HEAD is a simple command line tool for displaying and some manipulation
-of EXIF header data embedded in jpeg images from digital cameras.
+# Jhead
 
+Jhead is a simple command line tool for displaying and some manipulation of EXIF header data embedded in jpeg images from digital cameras.
 
-https://github.com/Matthias-Wandel/jhead
+* https://github.com/Matthias-Wandel/jhead
 
 # Installation
+
 ## MacOS
-    brew install jhead
+```bash
+brew install jhead
+```
+
 ## Debian
-    apt install jhead
-## Script
-    curl http://example.com/script.sh
+```bash
+apt install jhead
+```
 
 # Examples
 
-## Insert php code into the jpeg file
-    jhead -ce file.jpg
-The -ce option of jhead will launch a text editor to edit the comment section of the metadata.
+## Insert PHP code into the JPEG file
+```bash
+jhead -ce file.jpg
+```
+The `-ce` option of jhead will launch a text editor to edit the comment section of the metadata.
 
 We can then insert the following PHP code:
-    <?php  echo 'Hello, world!'; __halt_compiler(); ?>
+```php
+<?php  echo 'Hello, world!'; __halt_compiler(); ?>
+```
 
-The __halt_compiler() instruction is used to stop parsing the rest of the JPG file.
+The `__halt_compiler()` instruction is used to stop parsing the rest of the JPG file.
 
-The injected code will be executed if file.jpg is read as a PHP file. The most obvious way this can take place is by storing the file in the server using a php extension. See what happens when we access file.jpg.php.
+The injected code will be executed if `file.jpg` is read as a PHP file. The most obvious way this can take place is by storing the file in the server using a `.php` extension. See what happens when we access `file.jpg.php`.
 
 # Help output
 ```

@@ -1,22 +1,33 @@
-# NMAP
+# Nmap
+
 Nmap (“Network Mapper”) is a free and open source utility for network exploration and security auditing.
 
 * https://github.com/nmap/nmap
 * https://nmap.org/download.html
 
 # Installation
+
 ## MacOS
-    brew install nmap
+```bash
+brew install nmap
+```
+
 ## Debian
-    apt install nmap
+```bash
+apt install nmap
+```
 
 # Examples
 
 ## Basic scan
-	nmap -v -A --top-ports 100 $target
+```bash
+nmap -v -A --top-ports 100 $target
+```
 
 ## Better Scan
-    sudo nmap -vvv -Pn -sCV -T5 --reason -p0-65535 -oN scan_results.nmap $target
+```bash
+sudo nmap -vvv -Pn -sCV -T5 --reason -p0-65535 -oN scan_results.nmap $target
+```
 
 **-Pn** Assume host is active
 
@@ -31,33 +42,42 @@ Nmap (“Network Mapper”) is a free and open source utility for network explor
 **-oN** output the results to file
 
 ## Ping Sweep
-	nmap -sT -O --top-ports 25 *hosts* -oA $(date +"%Y_%m_%d_%I_%M_%p")_*hosts*
+```bash
+nmap -sT -O --top-ports 25 *hosts* -oA $(date +"%Y_%m_%d_%I_%M_%p")_*hosts*
+```
+
 ## Update script database
-	nmap --script-updatedb
+```bash
+nmap --script-updatedb
+```
 
 **List of nmap scripts:** https://nmap.org/nsedoc/scripts/
 
 ## Scan for know CVEs
-	nmap -Pn --script vuln 192.168.1.105
+```bash
+nmap -Pn --script vuln 192.168.1.105
+```
 
 ## Host Discovery
-	sudo nmap 10.129.2.0/24 -sn -oA tnet | grep for | cut -d" " -f5-6
+```bash
+sudo nmap 10.129.2.0/24 -sn -oA tnet | grep for | cut -d" " -f5-6
+```
 
-- sn 	Disables port scanning.
-- oA tnet 	Stores the results in all formats starting with the name 'tnet'.
-
+- **-sn** 	Disables port scanning.
+- **-oA tnet** 	Stores the results in all formats starting with the name 'tnet'.
 
 ## TCP-SYN scan
 
 The TCP-SYN scan (-sS) is one of the default settings unless we have defined otherwise and is also one of the most popular scan methods. This scan method makes it possible to scan several thousand ports per second. The TCP-SYN scan sends one packet with the SYN flag and, therefore, never completes the three-way handshake, which results in not establishing a full TCP connection to the scanned port.
 
-    - If our target sends a SYN-ACK flagged packet back to us, Nmap detects that the port is open.
-    - If the target responds with an RST flagged packet, it is an indicator that the port is closed.
-    - If Nmap does not receive a packet back, it will display it as filtered. Depending on the firewall configuration, certain packets may be dropped or ignored by the firewall.
+- If our target sends a SYN-ACK flagged packet back to us, Nmap detects that the port is open.
+- If the target responds with an RST flagged packet, it is an indicator that the port is closed.
+- If Nmap does not receive a packet back, it will display it as filtered. Depending on the firewall configuration, certain packets may be dropped or ignored by the firewall.
 
 ## Connect Scan on TCP Port 443
-
-	sudo nmap 10.129.2.28 -p 443 --packet-trace --disable-arp-ping -Pn -n --reason -sT 
+```bash
+sudo nmap 10.129.2.28 -p 443 --packet-trace --disable-arp-ping -Pn -n --reason -sT 
+```
 
 # Help output
 ```

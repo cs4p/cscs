@@ -1,23 +1,42 @@
-# Swaks - Swiss Army Knife for SMTP
-Swaks is a featureful, flexible, scriptable, transaction-oriented SMTP test tool
+# Swaks
 
-https://github.com/jetmore/swaks
+Swaks (Swiss Army Knife for SMTP) is a featureful, flexible, scriptable, transaction-oriented SMTP test tool. It handles SMTP features and extensions such as TLS, authentication, and pipelining.
 
-# Instalation
+* https://github.com/jetmore/swaks
+* http://www.jetmore.org/john/code/swaks/
+
+# Installation
+
 ## MacOS
-    brew install swaks
+```bash
+brew install swaks
+```
+
 ## Debian
-    apt install swaks
+```bash
+sudo apt install swaks
+```
 
 # Examples
 
-## Example script to send email to a list of addresses
-    while read email; do
-      echo "[+] Sending email from $email"
-        swaks --from support@sneakymailer.htb --to $email --header 'Subject: Register in the portal' --body 'http://10.10.14.129/pypi/register.php' --server sneakycorp.htb >/dev/null
-    done < emails.txt
+## Basic test email
+```bash
+swaks --to user@example.com --server mail.example.com
+```
 
-# Documentation
+## Send email from a list
+```bash
+while read email; do
+  swaks --from support@example.com --to $email --header 'Subject: Test' --body 'Test message' --server mail.example.com
+done < emails.txt
+```
+
+## Authenticated SMTP
+```bash
+swaks --to user@example.com --from me@example.com --auth CRAM-MD5 --auth-user me@example.com
+```
+
+# Help output
 ```
 NAME
     Swaks - Swiss Army Knife SMTP, the all-purpose SMTP transaction tester

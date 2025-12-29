@@ -1,11 +1,19 @@
 # Aquatone
 
-## Overview
 Aquatone is a tool for visual reconnaissance of websites across large numbers of hosts. It takes screenshots of web pages, generates reports, and helps identify interesting targets during reconnaissance. It's particularly useful for quickly assessing large numbers of domains or IP addresses.
 
-## Installation
+* https://github.com/michenriksen/aquatone
+* https://michenriksen.com/blog/aquatone-visual-inspection-of-websites/
 
-### Debian
+# Installation
+
+## MacOS
+```bash
+# Can be built from source using Go:
+go install github.com/michenriksen/aquatone@latest
+```
+
+## Debian
 ```bash
 # Download latest release
 wget https://github.com/michenriksen/aquatone/releases/download/v1.7.0/aquatone_linux_amd64_1.7.0.zip
@@ -23,25 +31,36 @@ sudo mv aquatone /usr/local/bin/
 sudo apt install chromium-browser
 ```
 
-### MacOS
-```
-Currently not available but should be possiable to build the project in go.
-```
+# Examples
 
-## Basic Usage
-
+## From subdomain list
 ```bash
-# From subdomain list
 cat domains.txt | aquatone
+```
 
-# From nmap XML
+## From Nmap XML
+```bash
 cat nmap.xml | aquatone -nmap
+```
 
-# Specify output directory
+## Specify output directory
+```bash
 cat domains.txt | aquatone -out ./results
 ```
 
-## Common Options
+## Basic Subdomain Enumeration
+```bash
+# From subdomain enumeration tool
+subfinder -d example.com | aquatone
+
+# From multiple tools
+cat subdomains.txt | aquatone -out example_recon
+
+# With custom ports
+cat domains.txt | aquatone -ports 80,443,8000,8080,8443,3000
+```
+
+# Common Options
 
 | Option | Description |
 |--------|-------------|
@@ -340,7 +359,7 @@ grep -ri "login\|sign in\|password" aquatone/html/
 jq -r '.pages[] | select(.status==200) | .url' aquatone/aquatone_session.json
 ```
 
-## References
-
-- **GitHub**: https://github.com/michenriksen/aquatone
-- **Blog Post**: https://michenriksen.com/blog/aquatone-visual-inspection-of-websites/
+# Help output
+```
+aquatone v1.7.0
+```

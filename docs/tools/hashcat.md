@@ -1,20 +1,44 @@
-# hashcat
-crack hashed passwords
+# Hashcat
 
-https://github.com/hashcat/hashcat
+Hashcat is the world's fastest and most advanced password recovery utility, supporting five unique modes of attack for over 300 highly-optimized hashing algorithms.
+
+* https://hashcat.net/hashcat/
+* https://github.com/hashcat/hashcat
 
 # Installation
+
 ## MacOS
-    brew install hashcat
+```bash
+brew install hashcat
+```
+
 ## Debian
-    apt install hashcat
+```bash
+apt install hashcat
+```
 
 # Examples
 
 ## Show an example hash for each hash-mode
-use this to find the Mode of the hashed string
-    hashcat --example-hashes | grep {{ some part of hash}}
+Use this to find the mode of the hashed string:
+```bash
+hashcat --example-hashes | grep "some part of hash"
+```
 
+## Wordlist attack (Straight)
+```bash
+hashcat -a 0 -m 0 example.hash /usr/share/wordlists/rockyou.txt
+```
+
+## Brute-force attack (Mask)
+```bash
+hashcat -a 3 -m 0 example.hash ?a?a?a?a?a?a
+```
+
+## Wordlist + Rules
+```bash
+hashcat -a 0 -m 0 example.hash /usr/share/wordlists/rockyou.txt -r rules/best64.rule
+```
 
 # Help output
 ```

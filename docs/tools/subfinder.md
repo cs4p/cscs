@@ -1,44 +1,50 @@
 # Subfinder
 
-## Overview
 Subfinder is a subdomain discovery tool that discovers valid subdomains for websites by using passive online sources. It's designed to be fast, simple, and modular, making it ideal for automated workflows and reconnaissance.
 
-## Installation
+* https://github.com/projectdiscovery/subfinder
+* https://docs.projectdiscovery.io/tools/subfinder
 
+# Installation
+
+## MacOS
 ```bash
-# Using Go
-go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
-
-# Using apt (Kali Linux)
-sudo apt install subfinder
-
-# Using Homebrew (macOS)
 brew install subfinder
-
-# From source
-git clone https://github.com/projectdiscovery/subfinder.git
-cd subfinder/v2/cmd/subfinder
-go build .
-sudo mv subfinder /usr/local/bin/
 ```
 
-## Basic Usage
-
+## Debian
 ```bash
-# Basic subdomain enumeration
+sudo apt install subfinder
+```
+
+## Go
+```bash
+go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+```
+
+# Examples
+
+## Basic subdomain enumeration
+```bash
 subfinder -d example.com
+```
 
-# Multiple domains
+## Multiple domains
+```bash
 subfinder -d example.com,test.com
+```
 
-# From file
-subfinder -dL domains.txt
-
-# Silent mode (output only)
+## Silent mode (output only)
+```bash
 subfinder -d example.com -silent
 ```
 
-## Common Options
+## Use all sources (thorough)
+```bash
+subfinder -d example.com -all
+```
+
+# Common Options
 
 | Option | Description |
 |--------|-------------|
@@ -481,9 +487,7 @@ Typical performance (varies by domain):
 
 With API keys: 2-5x more results
 
-## References
-
-- **GitHub**: https://github.com/projectdiscovery/subfinder
-- **Documentation**: https://docs.projectdiscovery.io/tools/subfinder
-- **ProjectDiscovery**: https://projectdiscovery.io/
-- **Chaos Dataset**: https://chaos.projectdiscovery.io/
+# Help output
+```
+subfinder -h
+```

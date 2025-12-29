@@ -1,95 +1,45 @@
 # Sudo
+
 Sudo (superuser do) allows a permitted user to execute a command as the superuser or another user, as specified by the security policy. It's a fundamental tool for privilege management on Unix-like systems.
 
 * https://www.sudo.ws/
 * https://man7.org/linux/man-pages/man8/sudo.8.html
 
 # Installation
+
 ## MacOS
-    # Pre-installed
+```bash
+# Pre-installed on all versions
+```
+
 ## Debian
-    apt install sudo
-
-# Configuration
-
-## Add user to sudo group
-	usermod -aG sudo username
-
-## Add user to sudoers file manually
-	visudo
-	# Add line:
-	username ALL=(ALL:ALL) ALL
-
-## Setup passwordless sudo for specific user
-	visudo
-	# Add line:
-	username ALL=(ALL) NOPASSWD: ALL
-
-## Setup passwordless sudo for specific command only
-	visudo
-	# Add line:
-	username ALL=(ALL) NOPASSWD: /usr/bin/apt, /usr/bin/systemctl
-
-## Setup passwordless sudo for sudo group
-	visudo
-	# Find and modify the line:
-	%sudo ALL=(ALL:ALL) NOPASSWD: ALL
-
-## Verify user's sudo privileges
-	sudo -l -U username
+```bash
+apt install sudo
+```
 
 # Examples
 
 ## Run command as root
-	sudo command
+```bash
+sudo command
+```
 
 ## Run command as specific user
-	sudo -u username command
-
-## Run command as root with environment preserved
-	sudo -E command
+```bash
+sudo -u username command
+```
 
 ## Switch to root shell
-	sudo -i
-
-## Switch to root shell (alternative)
-	sudo su -
-
-## Switch to another user
-	sudo su - username
-
-## Run previous command with sudo
-	sudo !!
-
-## Edit file as root using default editor
-	sudo -e /etc/hosts
+```bash
+sudo -i
+```
 
 ## List user's sudo privileges
-	sudo -l
+```bash
+sudo -l
+```
 
-## Run command without updating timestamp
-	sudo -n command
-
-## Clear cached credentials
-	sudo -k
-
-## Update cached credentials (extend timeout)
-	sudo -v
-
-## Run command with specific group
-	sudo -g groupname command
-
-## Validate sudoers file syntax
-	visudo -c
-
-## Run shell command as root
-	sudo sh -c "echo 'text' >> /etc/file"
-
-## Background process with sudo
-	sudo nohup long_running_command &
-
-## Check sudo version
-	sudo -V
+# Configuration
 
 # Sudoers File Configuration
 

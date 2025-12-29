@@ -1,24 +1,32 @@
 # Netstat
+
 Netstat (network statistics) is a command-line network utility that displays network connections, routing tables, interface statistics, masquerade connections, and multicast memberships.
 
-* Built-in utility on most operating systems
 * https://man7.org/linux/man-pages/man8/netstat.8.html
 
 # Installation
+
 ## MacOS
-    # Pre-installed (part of net-tools)
+```bash
+# Pre-installed on most versions
+```
+
 ## Debian
-    apt install net-tools
-## Note
-On modern Linux systems, `ss` (socket statistics) is the recommended replacement for netstat.
+```bash
+sudo apt install net-tools
+```
 
 # Examples
 
 ## Show all listening ports
-	netstat -tuln
+```bash
+netstat -tuln
+```
 
 ## Show all connections with PIDs
-	netstat -tulnp
+```bash
+sudo netstat -tulnp
+```
 
 **-t** Show TCP connections
 
@@ -31,43 +39,27 @@ On modern Linux systems, `ss` (socket statistics) is the recommended replacement
 **-p** Show process ID and program name
 
 ## Show all active connections
-	netstat -ant
+```bash
+netstat -ant
+```
 
 ## Display routing table
-	netstat -r
+```bash
+netstat -r
+```
 
 ## Show network interface statistics
-	netstat -i
-
-## Show listening TCP ports
-	netstat -tln
-
-## Show listening UDP ports
-	netstat -uln
-
-## Continuous monitoring (refresh every 2 seconds)
-	netstat -c
-
-## Show connections to a specific port
-	netstat -an | grep :80
-
-## Display all UNIX socket connections
-	netstat -x
-
-## Show network statistics by protocol
-	netstat -s
-
-## Show multicast group membership
-	netstat -g
+```bash
+netstat -i
+```
 
 ## Find which program is using a specific port
-	netstat -tulnp | grep :443
+```bash
+sudo netstat -tulnp | grep :443
+```
 
-## Show all established connections
-	netstat -tn | grep ESTABLISHED
-
-## Modern alternative using ss
-	ss -tuln
+# Note
+On modern Linux systems, `ss` (socket statistics) is the recommended replacement for netstat.
 
 # Help output
 ```

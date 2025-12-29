@@ -1,18 +1,42 @@
-# hydra
+# Hydra
+
 Number one of the biggest security holes are passwords, as every password security study shows. This tool is a proof of concept code, to give researchers and security consultants the possibility to show how easy it would be to gain unauthorized access from remote to a system.
 
-https://github.com/vanhauser-thc/thc-hydra
+* https://github.com/vanhauser-thc/thc-hydra
 
 # Installation
+
+## MacOS
+```bash
+brew install hydra
+```
+
 ## Debian
-    apt install hydra
+```bash
+apt install hydra
+```
+
 ## Docker
-    docker pull vanhauser/hydra
+```bash
+docker pull vanhauser/hydra
+```
 
 # Examples
 
+## Brute force SSH with username and password list
+```bash
+hydra -l user -P passlist.txt ssh://$target
+```
+
 ## username:password list
-    hydra -C path_to_file $target
+```bash
+hydra -C path_to_file $target
+```
+
+## Brute force FTP with user list and password
+```bash
+hydra -L userlist.txt -p defaultpw ftp://$target
+```
 
 # Help output
 ```

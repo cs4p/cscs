@@ -1,24 +1,32 @@
-# git
-Tool description
+# Git
 
-https://git-scm.com/
+Git is a distributed version control system for tracking changes in source code during software development. It is designed for coordinating work among programmers, but it can be used to track changes in any set of files.
+
+* https://git-scm.com/
+* https://github.com/git/git
 
 # Installation
+
 ## MacOS
-    brew install git
+```bash
+brew install git
+```
+
 ## Debian
-    apt install git
+```bash
+apt install git
+```
 
-## Common Tasks
+# Examples
 
-### Configuration
+## Configuration
 Set your identity for all repositories on your machine:
 ```bash
 git config --global user.name "Your Name"
 git config --global user.email "youremail@example.com"
 ```
 
-### Creating and Cloning
+## Creating and Cloning
 Initialize a new local repository:
 ```bash
 git init
@@ -28,7 +36,7 @@ Clone an existing repository:
 git clone https://github.com/user/repo.git
 ```
 
-### Basic Workflow
+## Basic Workflow
 Check the status of your files:
 ```bash
 git status
@@ -43,7 +51,7 @@ Commit staged changes:
 git commit -m "Brief description of changes"
 ```
 
-### Branching
+## Branching
 Create a new branch and switch to it:
 ```bash
 git checkout -b feature-branch
@@ -59,7 +67,7 @@ Merge a branch into the current one:
 git merge feature-branch
 ```
 
-### Remote Collaboration
+## Remote Collaboration
 Download latest changes from remote (without merging):
 ```bash
 git fetch origin
@@ -73,7 +81,7 @@ Upload local commits to remote:
 git push origin feature-branch
 ```
 
-### Undoing Changes
+## Undoing Changes
 Discard local changes in a file:
 ```bash
 git restore file.txt
@@ -83,9 +91,8 @@ Unstage a file (keep the changes):
 git restore --staged file.txt
 ```
 
-## Note
-zsh git plugin reference:
-https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git
+# Note
+zsh git plugin reference: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git
 
 # Help output
 ```

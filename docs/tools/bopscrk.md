@@ -1,16 +1,39 @@
-# bopscrk
+# Bopscrk
+
 Targeted-attack wordlist creator: introduce personal info related to target, combines every word and transforms results into possible passwords. The lyricpass module allows searching for lyrics related to artists and including them in the wordlists.
 
-https://github.com/r3nt0n/bopscrk
+* https://github.com/r3nt0n/bopscrk
 
 # Installation
-## Using pip
-    pip install bopscrk
 
-## Using git
-    git clone --recurse-submodules https://github.com/r3nt0n/bopscrk
-    cd bopscrk
-    pip install -r requirements.txt
+## MacOS / Debian (Using pip)
+```bash
+pip install bopscrk
+```
+
+## From Source
+```bash
+git clone --recurse-submodules https://github.com/r3nt0n/bopscrk
+cd bopscrk
+pip install -r requirements.txt
+```
+
+# Examples
+
+## Run interactive mode
+```bash
+bopscrk -i
+```
+
+## Generate wordlist from words
+```bash
+bopscrk -w John,Doe,1970 -o wordlist.txt
+```
+
+## Generate wordlist with leet and case transforms
+```bash
+bopscrk -w admin,password -l -c --min 8 --max 16
+```
 
 # How it works
 
@@ -37,10 +60,12 @@ https://github.com/r3nt0n/bopscrk
 # Examples
 
 ## Run interactive mode
-    bopscrk -i
+```bash
+bopscrk -i
+```
 
 ## Customizing behaviour using .cfg file
-In the bopscrk.cfg file, you can specify your own charsets and enable/disable options:
+In the `bopscrk.cfg` file, you can specify your own charsets and enable/disable options:
 
 - threads: number of threads to use in multithreaded operations
 - extra_combinations (like (john, doe) => 123john, john123, 123doe, doe123, john123doe doe123john) are enabled by default. You can disable it in the configuration file in order to get more focused wordlists.

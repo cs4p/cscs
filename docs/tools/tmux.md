@@ -1,30 +1,59 @@
-#tmux
+# Tmux
 
-https://medium.com/hackernoon/a-gentle-introduction-to-tmux-8d784c404340
+Tmux is a terminal multiplexer. It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal.
 
-tmux is based around sessions. To start a new session in tmux, simply type tmux new in your terminal. 
+* https://github.com/tmux/tmux
+* https://github.com/tmux/tmux/wiki
 
-All commands in tmux require the prefix shortcut, which by default is ctrl+b.
+# Installation
 
-**ctrl+b d** - This will detach the current session and return you to your normal shell.
+## MacOS
+```bash
+brew install tmux
+```
 
-To check what sessions are active you can run: **tmux ls**
+## Debian
+```bash
+sudo apt install tmux
+```
 
-The tmux sessions will each have a number associated with them on the left-hand side (zero indexed as nature intended). This number can be used to attach and get back into this same session. For example, for session number 3 we would type:
-`tmux attach-session -t 3`
-or we can go to the last created session with:
-`tmux a #`
+# Examples
 
-To start a new session with a specific name we can just do the below:
-`tmux new -s [name of session]`
+## Sessions
 
-To split a pane horizontally: `ctrl+b "`
+### Start a new session
+```bash
+tmux new -s my-session
+```
 
-To split pane vertically: `ctrl+b %`
+### Detach from session
+`Ctrl+b` then `d`
 
-To move from pane to pane: `ctrl+b [arrow key]`
+### List sessions
+```bash
+tmux ls
+```
 
-tmux shortcuts & cheatsheet: https://gist.github.com/MohamedAlaa/2961058
+### Attach to a session
+```bash
+tmux attach-session -t my-session
+# OR
+tmux a -t 0
+```
 
-tmux themes: https://github.com/jimeh/tmux-themepack
+## Panes
+
+### Split horizontally
+`Ctrl+b` then `"`
+
+### Split vertically
+`Ctrl+b` then `%`
+
+### Navigate between panes
+`Ctrl+b` then `Arrow Keys`
+
+# Help output
+```
+usage: tmux [-2CluvV] [-c shell-command] [-f file] [-L socket-name] [-S socket-path] [command [flags]]
+```
 

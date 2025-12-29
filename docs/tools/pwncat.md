@@ -1,23 +1,32 @@
-# pwncat
-pwncat is a post-exploitation platform for Linux targets. It started out as a wrapper around basic bind and reverse shells and has grown from there. It streamlines common red team operations while staging code from your attacker machine, not the target.
+# Pwncat
 
-pwncat used to only support Linux, but there has been a lot of work recently to support multiple platforms. Currently, there is alpha support for Windows targets. Please see the latest documentation for details on how to use pwncat with a Windows target.
+Pwncat is a post-exploitation platform for Linux targets. It started out as a wrapper around basic bind and reverse shells and has grown from there. It streamlines common red team operations while staging code from your attacker machine, not the target.
 
-https://github.com/calebstewart/pwncat
+* https://github.com/calebstewart/pwncat
 
 # Installation
-## MacOS
-    brew install pwncat
-## Debian
-    apt install pwncat
 
+## MacOS / Debian (Using pip)
+```bash
+pip install pwncat-cs
+```
 
 # Examples
 
-## Start a listener on port 4444
-    pwncat -l 4444
+## Start a listener
+```bash
+pwncat-cs -lp 4444
+```
 
-Listen for incoming reverse shell connections:
+## Connect to a bind shell
+```bash
+pwncat-cs $target 4444
+```
+
+## Listen on specific interface
+```bash
+pwncat-cs -m linux -lp 4444
+```
 
 # Help output
 ```

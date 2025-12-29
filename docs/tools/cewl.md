@@ -1,37 +1,49 @@
-# CeWL - Custom Word List generator
+# CeWL
 
-CeWL is a ruby app that spiders a given URL to a specified depth, optionally following external links, and returns a list of words which can then be used for password crackers such as John the Ripper.
+CeWL (Custom Word List generator) is a ruby app that spiders a given URL to a specified depth, optionally following external links, and returns a list of words which can then be used for password crackers such as John the Ripper.
 
-https://github.com/digininja/CeWL
+* https://github.com/digininja/CeWL
+* https://digi.ninja/projects/cewl.php
 
 # Installation
 
+## MacOS / Debian
+```bash
+# Clone the repository
 git clone https://github.com/digininja/CeWL.git
+cd CeWL
 
-CeWL needs the following gems to be installed:
-
-    mime
-    mime-types
-    mini_exiftool
-    nokogiri
-    rubyzip
-    spider
-
-The easiest way to install these gems is with Bundler:
-
+# Install dependencies
 gem install bundler
-sudo bundle install
+bundle install
+```
 
-Assuming you cloned the GitHub repo, the script should be executable by default, but if not, you can make it executable with:
+## Docker
+```bash
+docker run -it --rm -v "${PWD}:/host" ghcr.io/digininja/cewl [OPTIONS] ... <url>
+```
 
-chmod u+x ./cewl.rb
+# Examples
 
-## Running CeWL in a Docker container
+## Generate wordlist from a website
+```bash
+cewl -w wordlist.txt https://example.com
+```
 
-To quickly use CeWL with Docker, you can use the official ghcr.io/digininja/cewl image:
+## Generate wordlist with a minimum word length of 5
+```bash
+cewl -m 5 https://example.com
+```
 
-    docker run -it --rm -v "${PWD}:/host" ghcr.io/digininja/cewl [OPTIONS] ... <url>
+## Include email addresses in the output
+```bash
+cewl -e https://example.com
+```
 
+## Spider to a depth of 3
+```bash
+cewl -d 3 https://example.com
+```
 
 # Help output
 ```

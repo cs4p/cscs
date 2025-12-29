@@ -1,34 +1,57 @@
-# dig
+# Dig
 
-## Overview
-dig (Domain Information Groper) is a powerful command-line tool for querying DNS nameservers. It's used for network troubleshooting, DNS diagnostics, and information gathering during reconnaissance.
+Dig (Domain Information Groper) is a powerful command-line tool for querying DNS nameservers. It's used for network troubleshooting, DNS diagnostics, and information gathering during reconnaissance.
 
-## Installation
+* https://linux.die.net/man/1/dig
+* https://www.isc.org/bind/
 
+# Installation
+
+## MacOS
 ```bash
-# Debian/Ubuntu
-sudo apt install dnsutils
-
-# RHEL/CentOS
-sudo yum install bind-utils
-
-# macOS (usually pre-installed)
 brew install bind
 ```
 
-## Basic Usage
-
+## Debian
 ```bash
-# Basic query
-dig example.com
+sudo apt install dnsutils
+```
 
-# Query specific record type
+# Examples
+
+## Basic query
+```bash
+dig example.com
+```
+
+## Query specific record type
+```bash
 dig example.com A
 dig example.com MX
 dig example.com NS
 ```
 
-## Common Record Types
+## Short answer only
+```bash
+dig example.com +short
+```
+
+## Reverse DNS lookup
+```bash
+dig -x 8.8.8.8
+```
+
+## Trace delegation path
+```bash
+dig example.com +trace
+```
+
+## Query specific DNS server
+```bash
+dig @8.8.8.8 example.com
+```
+
+# Common Record Types
 
 | Type | Description |
 |------|-------------|
@@ -278,8 +301,7 @@ done
 7. **Check both IPv4 and IPv6** - Some records may differ
 8. **Look for CNAMEs** - Can reveal infrastructure (CDN, cloud providers)
 
-## References
-
-- **Man Page**: `man dig`
-- **ISC BIND**: https://www.isc.org/bind/
-- **DNS RFCs**: RFC 1035, RFC 4034 (DNSSEC)
+# Help output
+```
+Usage:  dig [@global-server] [domain] [q-type] [q-class] {q-opt}
+```
