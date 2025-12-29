@@ -1,9 +1,5 @@
 # hydra
-Number one of the biggest security holes are passwords, as every password
-security study shows.
-This tool is a proof of concept code, to give researchers and security
-consultants the possibility to show how easy it would be to gain unauthorized
-access from remote to a system.
+Number one of the biggest security holes are passwords, as every password security study shows. This tool is a proof of concept code, to give researchers and security consultants the possibility to show how easy it would be to gain unauthorized access from remote to a system.
 
 https://github.com/vanhauser-thc/thc-hydra
 

@@ -5,6 +5,7 @@ Aquatone is a tool for visual reconnaissance of websites across large numbers of
 
 ## Installation
 
+### Debian
 ```bash
 # Download latest release
 wget https://github.com/michenriksen/aquatone/releases/download/v1.7.0/aquatone_linux_amd64_1.7.0.zip
@@ -20,6 +21,11 @@ sudo mv aquatone /usr/local/bin/
 
 # Install dependencies
 sudo apt install chromium-browser
+```
+
+### MacOS
+```
+Currently not available but should be possiable to build the project in go.
 ```
 
 ## Basic Usage

@@ -22,6 +22,7 @@ https://github.com/r3nt0n/bopscrk
 
 # Tips
 
+* Lyrics submodule appears to be broken
 * Fields can be left empty.
 * You can use accentuation in your words and special chars (if you use the non-interactive mode, escape special chars like ' and " with backslashes, e.g.: bopscrk -w John,O\'hara,Doe,foo,bar).
 * In the others field you can write several words comma-separated. Example: 2C,Flipper.

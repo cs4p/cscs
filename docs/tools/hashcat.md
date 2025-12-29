@@ -15,8 +15,6 @@ https://github.com/hashcat/hashcat
 use this to find the Mode of the hashed string
     hashcat --example-hashes | grep {{ some part of hash}}
 
-## Example 2
-something else
 
 # Help output
 ```

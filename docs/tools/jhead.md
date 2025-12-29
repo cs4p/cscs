@@ -1,6 +1,6 @@
 # jhead
 HEAD is a simple command line tool for displaying and some manipulation
-of EXIF header data embedded in Jpeg images from digital cameras.
+of EXIF header data embedded in jpeg images from digital cameras.
 
 
 https://github.com/Matthias-Wandel/jhead

@@ -26,16 +26,12 @@ Assuming you cloned the GitHub repo, the script should be executable by default,
 
 chmod u+x ./cewl.rb
 
+## Running CeWL in a Docker container
 
+To quickly use CeWL with Docker, you can use the official ghcr.io/digininja/cewl image:
 
+    docker run -it --rm -v "${PWD}:/host" ghcr.io/digininja/cewl [OPTIONS] ... <url>
 
-# Examples
-
-## Example 1
-    something
-
-## Example 2
-    something else
 
 # Help output
 ```

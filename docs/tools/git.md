@@ -8,7 +8,80 @@ https://git-scm.com/
     brew install git
 ## Debian
     apt install git
-# Examples
+
+## Common Tasks
+
+### Configuration
+Set your identity for all repositories on your machine:
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "youremail@example.com"
+```
+
+### Creating and Cloning
+Initialize a new local repository:
+```bash
+git init
+```
+Clone an existing repository:
+```bash
+git clone https://github.com/user/repo.git
+```
+
+### Basic Workflow
+Check the status of your files:
+```bash
+git status
+```
+Stage changes for the next commit:
+```bash
+git add file.txt       # Stage a specific file
+git add .              # Stage all changes
+```
+Commit staged changes:
+```bash
+git commit -m "Brief description of changes"
+```
+
+### Branching
+Create a new branch and switch to it:
+```bash
+git checkout -b feature-branch
+# OR (newer syntax)
+git switch -c feature-branch
+```
+Switch back to the main branch:
+```bash
+git switch main
+```
+Merge a branch into the current one:
+```bash
+git merge feature-branch
+```
+
+### Remote Collaboration
+Download latest changes from remote (without merging):
+```bash
+git fetch origin
+```
+Update local branch with remote changes:
+```bash
+git pull origin main
+```
+Upload local commits to remote:
+```bash
+git push origin feature-branch
+```
+
+### Undoing Changes
+Discard local changes in a file:
+```bash
+git restore file.txt
+```
+Unstage a file (keep the changes):
+```bash
+git restore --staged file.txt
+```
 
 ## Note
 zsh git plugin reference:

@@ -158,17 +158,6 @@ dig example.com DNSKEY
 dig example.com DS
 ```
 
-### Subdomain Enumeration
-```bash
-# Query common subdomains
-dig www.example.com +short
-dig mail.example.com +short
-dig ftp.example.com +short
-
-# Check wildcard DNS
-dig randomstring123.example.com
-```
-
 ### Advanced Queries
 ```bash
 # Query with TCP instead of UDP
@@ -288,40 +277,6 @@ done
 6. **Use @server to bypass local DNS** - Get fresh results
 7. **Check both IPv4 and IPv6** - Some records may differ
 8. **Look for CNAMEs** - Can reveal infrastructure (CDN, cloud providers)
-
-## Common Use Cases
-
-### Security Testing
-- DNS reconnaissance
-- Subdomain discovery
-- Zone transfer attempts
-- DNS cache poisoning detection
-- DNSSEC validation
-
-### Troubleshooting
-- Verify DNS propagation
-- Check DNS resolution issues
-- Debug mail delivery (MX records)
-- Validate domain configuration
-- Test DNS server performance
-
-### Information Gathering
-- Identify hosting provider
-- Find mail servers
-- Discover nameservers
-- Check SPF/DKIM/DMARC records
-- Identify CDN usage
-
-## Comparison with Similar Tools
-
-| Feature | dig | nslookup | host |
-|---------|-----|----------|------|
-| Detail Level | High | Medium | Low |
-| Output Control | Excellent | Limited | Limited |
-| Batch Queries | Yes | No | Yes |
-| DNSSEC | Yes | Limited | Yes |
-| Scripting | Excellent | Poor | Good |
-| Learning Curve | Moderate | Easy | Easy |
 
 ## References
 
