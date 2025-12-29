@@ -19,11 +19,8 @@ cd lynis && ./lynis audit system
 
 # Examples
 
-## Example 1
-    something
-
-## Example 2
-    something else
+## Scan the local system for issues
+    lynis audit system 
 
 # Help output
 ```

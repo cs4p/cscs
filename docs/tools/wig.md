@@ -4,20 +4,31 @@ WebApp Information Gatherer
 https://github.com/jekyc/wig
 
 # Installation
-## MacOS
-    brew install tool
-## Debian
-    apt install tool
+
 ## Script
-    curl http://example.com/script.sh
+    git clone https://github.com/jekyc/wig.git
 
 # Examples
 
-## Example 1
-    something
+## Scan a website
+    $ python3 wig.py example.com
 
-## Example 2
-    something else
+## Usage in script
+    
+Install with
+
+```
+$ python3 setup.py install
+```
+
+and then wig can be imported from any location as such:
+
+```
+>>>> from wig.wig import wig
+>>>> w = wig(url='example.com')
+>>>> w.run()
+>>>> results = w.get_results()
+```
 
 # Help output
 ```

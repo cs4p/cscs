@@ -8,15 +8,7 @@ https://git-scm.com/
     brew install git
 ## Debian
     apt install git
-
-
 # Examples
-
-## Example 1
-    something
-
-## Example 2
-    something else
 
 ## Note
 zsh git plugin reference:

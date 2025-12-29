@@ -26,9 +26,6 @@ The __halt_compiler() instruction is used to stop parsing the rest of the JPG fi
 
 The injected code will be executed if file.jpg is read as a PHP file. The most obvious way this can take place is by storing the file in the server using a php extension. See what happens when we access file.jpg.php.
 
-## Example 2
-    something else
-
 # Help output
 ```
 Jhead is a program for manipulating settings and thumbnails in Exif jpeg headers

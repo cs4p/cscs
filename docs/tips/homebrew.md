@@ -20,7 +20,7 @@
     brew install docker
 
 ## Docker/Container Management
-Recomend using colima as a simple command line replacement for docker:
+Recommend using colima as a simple command line replacement for docker:
     
     brew install colima docker docker-compose docker-buildx
 
@@ -53,6 +53,7 @@ Recomend using colima as a simple command line replacement for docker:
     brew install --cask setapp
     brew install --cask signal
     brew install --cask slack
+    brew install obsidian
 
 # Apps can be installed from the App Store using MAS
     FriendlyStreaming - mas install 553245401

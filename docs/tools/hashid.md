@@ -8,17 +8,32 @@ Identify the different types of hashes used to encrypt data
 ## MacOS
     brew install tool
 ## Debian
-    apt install tool
+    apt install hashid
 ## Script
-    curl http://example.com/script.sh
+    pip install hashid
 
 # Examples
 
-## Example 1
-    something
+`$ ./hashid.py '$P$8ohUJ.1sdFw09/bMaAQPTGDNi2BIUt1'`
+`Analyzing '$P$8ohUJ.1sdFw09/bMaAQPTGDNi2BIUt1'`
+`[+] Wordpress ≥ v2.6.2`
+`[+] Joomla ≥ v2.5.18`
+`[+] PHPass' Portable Hash`
 
-## Example 2
-    something else
+`$ ./hashid.py -mj '$racf$*AAAAAAAA*3c44ee7f409c9a9b'`
+`Analyzing '$racf$*AAAAAAAA*3c44ee7f409c9a9b'`
+`[+] RACF [Hashcat Mode: 8500][JtR Format: racf]`
+
+`$ ./hashid.py hashes.txt`
+`--File 'hashes.txt'--`
+`Analyzing '*85ADE5DDF71E348162894C71D73324C043838751'`
+`[+] MySQL5.x`
+`[+] MySQL4.1`
+`Analyzing '$2a$08$VPzNKPAY60FsAbnq.c.h5.XTCZtC1z.j3hnlDFGImN9FcpfR1QnLq'`
+`[+] Blowfish(OpenBSD)`
+`[+] Woltlab Burning Board 4.x`
+`[+] bcrypt`
+`--End of file 'hashes.txt'--`
 
 # Help output
 ```
