@@ -10,16 +10,14 @@ https://github.com/calebstewart/pwncat
     brew install pwncat
 ## Debian
     apt install pwncat
-## Script
-    curl http://example.com/script.sh
+
 
 # Examples
 
-## Example 1
-    something
+## Start a listener on port 4444
+    pwncat -l 4444
 
-## Example 2
-    something else
+Listen for incoming reverse shell connections:
 
 # Help output
 ```

@@ -338,4 +338,3 @@ jq -r '.pages[] | select(.status==200) | .url' aquatone/aquatone_session.json
 
 - **GitHub**: https://github.com/michenriksen/aquatone
 - **Blog Post**: https://michenriksen.com/blog/aquatone-visual-inspection-of-websites/
-- **Alternative (Gowitness)**: https://github.com/sensepost/gowitness

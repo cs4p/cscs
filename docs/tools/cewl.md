@@ -1,17 +1,33 @@
 # CeWL - Custom Word List generator
 
-CeWL is a ruby app which spiders a given URL to a specified depth, optionally following external links, and returns a list of words which can then be used for password crackers such as John the Ripper.
+CeWL is a ruby app that spiders a given URL to a specified depth, optionally following external links, and returns a list of words which can then be used for password crackers such as John the Ripper.
 
 https://github.com/digininja/CeWL
 
 # Installation
 
-# MacOS
-    brew install tool
-## Debian
-    apt install tool
-## Script
-    curl http://example.com/script.sh
+git clone https://github.com/digininja/CeWL.git
+
+CeWL needs the following gems to be installed:
+
+    mime
+    mime-types
+    mini_exiftool
+    nokogiri
+    rubyzip
+    spider
+
+The easiest way to install these gems is with Bundler:
+
+gem install bundler
+sudo bundle install
+
+Assuming you cloned the GitHub repo, the script should be executable by default, but if not, you can make it executable with:
+
+chmod u+x ./cewl.rb
+
+
+
 
 # Examples
 
