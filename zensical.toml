@@ -51,7 +51,7 @@ Copyright &copy; 2025 The authors
 # "docs_dir". The definition below demonstrates how a navigation structure
 # can be defined using TOML syntax.
 #
-# Read more: https://zensical.org/docs/setup/navigation/
+# Read more: https://zensical.org/docs/setup/nazensical servevigation/
 # nav = [
 #   { "Get started" = "index.md" },
 #   { "Markdown in 5min" = "markdown.md" },

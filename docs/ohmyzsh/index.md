@@ -1,0 +1,123 @@
+# Oh My Zsh
+
+Oh My Zsh is an open-source, community-driven framework for managing your Zsh configuration. It comes bundled with thousands of helpful functions, helpers, plugins, and themes.
+
+* https://github.com/ohmyzsh/ohmyzsh
+* https://ohmyz.sh/
+
+# Installation
+
+## MacOS / Linux
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+## Alternative: wget
+```bash
+sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+```
+
+# Configuration
+
+## Change theme
+Edit `~/.zshrc` and set the theme:
+```bash
+ZSH_THEME="half-life"
+```
+## Update Oh My Zsh
+```bash
+omz update
+```
+## Reload configuration
+```bash
+source ~/.zshrc
+```
+## Enable plugins
+Edit `~/.zshrc` and add plugins to the plugins array:
+```bash
+plugins=(1password asdf aliases alias-finder common-aliases command-not-found docker git kubectl nmap pip python sudo themes tailscale)
+```
+
+# Example Configuration
+
+    # Path to your oh-my-zsh installation.
+    export ZSH="$HOME/.oh-my-zsh"
+    
+    # Set name of the theme to load --- if set to "random", it will
+    # load a random theme each time oh-my-zsh is loaded, in which case,
+    # to know which specific one was loaded, run: echo $RANDOM_THEME
+    # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+    ZSH_THEME="half-life"
+     
+    # Uncomment one of the following lines to change the auto-update behavior
+    # zstyle ':omz:update' mode disabled  # disable automatic updates
+    zstyle ':omz:update' mode auto      # update automatically without asking
+    # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+    
+    # Uncomment the following line to enable command auto-correction.
+    ENABLE_CORRECTION="true"
+    
+    # Which plugins would you like to load?
+    # Standard plugins can be found in $ZSH/plugins/
+    # Custom plugins may be added to $ZSH_CUSTOM/plugins/
+    # Example format: plugins=(rails git textmate ruby lighthouse)
+    # Add wisely, as too many plugins slow down shell startup.
+    plugins=(1password asdf aliases alias-finder common-aliases command-not-found docker git nmap pip python sudo themes tailscale)
+    
+    source $ZSH/oh-my-zsh.sh
+    
+    # User configuration
+    
+    zstyle ':omz:plugins:alias-finder' autoload yes # disabled by default
+    zstyle ':omz:plugins:alias-finder' longer yes # disabled by default
+    zstyle ':omz:plugins:alias-finder' exact yes # disabled by default
+    zstyle ':omz:plugins:alias-finder' cheaper yes # disabled by default
+    
+    # Set personal aliases, overriding those provided by oh-my-zsh libs,
+    # plugins, and themes. Aliases can be placed here, though oh-my-zsh
+    # users are encouraged to define aliases within the ZSH_CUSTOM folder.
+    # For a full list of active aliases, run `alias`.
+    #
+    # Example aliases
+    alias zshconfig="vim ~/.zshrc"
+    alias ohmyzsh="vim ~/.oh-my-zsh"
+    alias git_config_list="git config -l --show-origin --show-scope"
+    
+    # Add asdf shims to PATH
+    export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+    
+    export PATH=$PATH:$HOME/go/bin
+
+
+
+# Useful Commands
+
+## List all themes
+    ls ~/.oh-my-zsh/themes/
+
+## List all plugins
+    ls ~/.oh-my-zsh/plugins/
+
+## Preview theme
+    omz theme use <theme-name>
+
+## Disable Oh My Zsh
+    omz disable
+
+## Enable Oh My Zsh
+    omz enable
+
+## Uninstall Oh My Zsh
+    uninstall_oh_my_zsh
+
+## Show plugin info
+    omz plugin info <plugin-name>
+
+# Tips
+
+- Keep plugins minimal for better performance
+- Use `zsh-syntax-highlighting` as the last plugin in the list
+- Install Powerline fonts for best theme compatibility: https://github.com/powerline/fonts
+- Use `source ~/.zshrc` after making changes to reload configuration
+- Backup your `.zshrc` before major changes
+- Check plugin documentation: `~/.oh-my-zsh/plugins/<plugin-name>/README.md`
