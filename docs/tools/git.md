@@ -91,6 +91,17 @@ Unstage a file (keep the changes):
 git restore --staged file.txt
 ```
 
+## Remove git history
+Remove all commits from a branch
+```bash
+git checkout --orphan new_branch
+git add -A
+git commit -m "Initial commit"
+git branch -D main
+git branch -m main
+git push -f origin main
+```
+
 # Note
 zsh git plugin reference: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git
 
