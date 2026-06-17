@@ -17,19 +17,34 @@
     brew install mas
     brew install maccy
     brew install --cask the-unarchiver
-    brew install docker
+    brew install rsync
+    brew install htop
 
 ## Docker/Container Management
 Recommend using colima as a simple command line replacement for docker:
     
-    brew install colima docker docker-compose docker-buildx
+    brew install colima     
+    brew install docker     
+    brew install docker-compose     
+    brew install docker-buildx
+    brew install docker-clean
+
+## Claude
+    brew install claude
+    brew install claude-code or curl -fsSL https://claude.ai/install.sh | bash
+    brew install claude-devtools
 
 ## Development
-    brew install python@3.12
+    brew install uv
     brew install asdf
     brew install gh
     brew install node
+    brew install oven-sh/bun/bun or curl -fsSL https://bun.com/install | bash 
     
+## Terraform
+    brew tap hashicorp/tap
+    brew install hashicorp/tap/terraform
+
 ## Security
     brew install nmap
     brew install ffuf
@@ -64,13 +79,18 @@ Recommend using colima as a simple command line replacement for docker:
     brew install kubecm
     brew install kubernetes-cli
     brew install minikube
+    brew install helm
+    brew install kubectl
+    
 
 ## Special use case
     brew install big-mean-folder-machine
     brew install handbrake-app
-    brew install osxphotos <-- May not be working    
+    brew install osxphotos <-- May not be working  
+    brew install ffmpeg
+    brew install openvpn
 
-## Setup tailscale
+## Set up tailscale
     brew install tailscale
 
 To start tailscale now and restart at login:
