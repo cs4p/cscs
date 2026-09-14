@@ -1,5 +1,11 @@
 # Homebrew Tips
 
+# Installing Homebrew
+
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    
+[Installing Homebrew without sudo](https://nelsonaloysio.medium.com/installing-homebrew-without-sudo-5e708a929522)
+
 # Setup autoupdate
     brew tap domt4/autoupdate
     brew autoupdate start
