@@ -104,9 +104,10 @@ Login to the tailscale network:
     tailscale login
 
 # Get homebrew to work with zscalar
-Change the target directory to where your homebrew install is located
+Change the target directory to where your homebrew install is located. You can find the homebrew install with `brew --prefix`
+
     mkdir -p ~/homebrew/etc/openssl@3/certs
-    security find-certificate -a -c "Zscaler" -p /Library/Keychains/System.keychain >> ~/homebrew/etc/openssl@3/certs
+    security find-certificate -a -c "Zscaler" -p /Library/Keychains/System.keychain >> ~/homebrew/etc/openssl@3/certs/ZscalerRootCA.pem
 
 
 
